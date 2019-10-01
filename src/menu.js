@@ -1,4 +1,4 @@
-const MENU_ITEMS = {
+export const MENU_ITEMS = {
   "onigiri": "../assets/menu_items/onigiri.png",
   "sashimi": "../assets/menu_items/sashimi.png",
   "pickles": "../assets/menu_items/pickles.png",
@@ -9,7 +9,7 @@ const MENU_ITEMS = {
   "sushi-roll": "../assets/menu_items/sushi-roll.png"
 };
 
-class MenuItem {
+export class MenuItem {
   constructor(id, imagePath){
     this.id = id;
     this.imagePath = imagePath;
@@ -23,7 +23,7 @@ class MenuItem {
   }
 }
 
-class Menu {
+export class Menu {
   constructor() {
     this.menu = [];
 
@@ -32,7 +32,6 @@ class Menu {
 
   generateMenu() {
     let menuItems = Array.from( document.getElementsByClassName("menu-item") );
-    // debuggser
     menuItems.forEach(item => {
       let itemId = item.id;
       let menuItem = new MenuItem(itemId, MENU_ITEMS[itemId]);
@@ -41,5 +40,3 @@ class Menu {
     }); 
   }
 }
-
-export default Menu;

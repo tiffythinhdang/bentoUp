@@ -193,13 +193,52 @@ footer {
   position: relative;
 }
 
-.menu-item:hover {
+.menu-item:hover, .bento-item:hover, .hover {
   top: -5px;
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.menu-item > img {
+.menu-item > img, .bento-item > img {
   width: 100%;
+}
+
+#bento-container {
+  width: 233px;
+  height: 160px;
+  border: 1px solid black;
+}
+
+#bento {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  padding: 5px;
+  background: #80523F;
+  box-shadow: 8px 8px 4px rgba(0, 0, 0, 0.25);
+}
+
+.bento-4 {
+  width: 160px;
+  height: 160px;
+  border-radius: 8px;
+}
+
+.bento-6 {
+  width: 233px;
+  height: 160px;
+  border-radius: 8px;
+}
+
+.bento-item {
+  width: 65px;
+  height: 65px;
+  background: #FFFFFF;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
 }
 
 /* #game-canvas > img {
