@@ -7,7 +7,6 @@
   <link rel="shortcut icon" type="image/png" href="../assets/logo.png" />
   <link rel="stylesheet" href="../stylesheets/body.css" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Comfortaa|Mansalva&display=swap" rel="stylesheet">
-  <script src="../bundle.js"></script>
   <title>bentoUp</title>
 </head>
 
@@ -41,10 +40,41 @@
       <img src='../assets/sushi_chef.png' alt="chef-img" />
     </div>
 
-    <div class="board">
-      <img class="animated bounceInRight customer"
-        src="https://www.flaticon.com/premium-icon/icons/svg/2102/2102826.svg" alt="" />
+    <div id="game-canvas">
+      <div id="top-bar">
+
+      </div>
+
+      <div id="customer-interaction">
+
+      </div>
+
+      <div id="counter">
+        <div id="bento">
+          <div class="bento-first-row">
+          </div>
+          <div class="bento-second-row">
+          </div>
+        </div>
+
+        <div id="menu">
+          <div class="menu-first-row">
+            <div id="onigiri" class="menu-item"></div>
+            <div id="sashimi" class="menu-item"></div>
+            <div id="pickles" class="menu-item"></div>
+            <div id="tempura" class="menu-item"></div>
+          </div>
+          <div class="menu-second-row">
+            <div id="fish" class="menu-item"></div>
+            <div id="tamago" class="menu-item"></div>
+            <div id="meatballs" class="menu-item"></div>
+            <div id="sushi-roll" class="menu-item"></div>
+          </div>
+        </div>
+      </div>
     </div>
+
+    <script type="application/javascript" src="./main.js"></script>
 
     <div class="right-img container">
       <img src='../assets/sushi_chef.png' alt="chef-img" />
