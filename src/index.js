@@ -18,16 +18,18 @@ import { Menu } from './menu';
 import Bento  from './bento';
 import { Order } from './order';
 
+import Game  from './game';
+
 document.addEventListener("DOMContentLoaded", () => {
   let gameCanvas = document.getElementById("game-canvas");
+  let game = new Game();
+  // let menu = new Menu();
 
-  let menu = new Menu();
+  // let num = [4, 6];
+  // let idx = Math.floor(Math.random() * 2);
+  // let order = new Order(num[idx], num[idx] === 4 ? 20 : 20);
 
-  let num = [4, 6];
-  let idx = Math.floor(Math.random() * 2);
-  let order = new Order(num[idx]);
-
-  let bento = new Bento(num[idx], order.order);
+  // let bento = new Bento(num[idx], order.order);
 
   window.addEventListener("keydown", (e) => { 
     let key = e.key;

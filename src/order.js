@@ -1,4 +1,5 @@
 import { MENU_ITEMS } from "./menu";
+import Timer from '../src/timer';
 
 export const CUSTOMERS = {
   1: "../assets/customers/customer_1.png",
@@ -9,14 +10,16 @@ export const CUSTOMERS = {
 };
 
 export class Order {
-  constructor(numItems){
+  constructor(numItems, numSeconds){
     this.numItems = numItems;
     this.order = [];
+    this.timer = new Timer(numSeconds);
 
     this.generateOrder();
     this.generateCustomer();
     this.generateSpeechBubble();
-    this.render();
+    this.renderOrder();
+    this.startTimer();
   }
 
   generateOrder() {
@@ -53,7 +56,16 @@ export class Order {
     return img;
   }
 
-  render() {
+  startTimer() {
+    let timerContainer = document.getElementById("timer-container");
+    let timer = document.createElement("div");
+    timer.id = "timer";
+    timer.innerHTML = this.timer.count;
+    timerContainer.appendChild(timer);
+    this.timer.start();
+  }
+
+  renderOrder() {
     let orderContainer = document.createElement("div");
     orderContainer.classList.add("order-container");
     orderContainer.classList.add(`box-${this.numItems}`);

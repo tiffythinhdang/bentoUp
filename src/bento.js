@@ -1,4 +1,5 @@
 import { MENU_ITEMS } from "./menu";
+import { Order } from './order';
 
 class Bento {
   constructor(numItems, order) {
