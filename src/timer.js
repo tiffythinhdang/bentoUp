@@ -22,15 +22,18 @@ class Timer {
     if (this.count <= 0) {
       this.count = 0;
       clearInterval(this.interval);
+      setTimeout(() => alert("you lose"), 1000 );
       // game.flow.gameOver();
     }
+    let timer = document.getElementById("timer");
+    timer.innerHTML = this.count;
     // update the view
     // var progress = this.count / this.countFrom * 100;
     // this.progressView.style.width = progress + "%";
   }
 };
 
-export default timer;
+export default Timer;
 
 
 // (function () {
