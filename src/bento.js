@@ -61,7 +61,8 @@ class Bento {
 
   check() {
     if (this.bento.length < this.numItems) return;
-    if (JSON.stringify(this.order) !== JSON.stringify(this.bento)) {
+    debugger
+    if (JSON.stringify(this.order.order) !== JSON.stringify(this.bento)) {
       setTimeout(() => {alert("you lose")}, 1000);
     } else {
       setTimeout(() => {alert("you win")}, 1000);

@@ -13,13 +13,14 @@ export class Order {
   constructor(numItems, numSeconds){
     this.numItems = numItems;
     this.order = [];
-    this.timer = new Timer(numSeconds);
+    this.numSeconds= numSeconds;
+    // this.timer = new Timer(numSeconds);
 
     this.generateOrder();
     this.generateCustomer();
     this.generateSpeechBubble();
     this.renderOrder();
-    this.startTimer();
+    // this.startTimer();
   }
 
   generateOrder() {
@@ -54,15 +55,6 @@ export class Order {
     img.src = MENU_ITEMS[id];
     img.alt = `${id}-icon`;
     return img;
-  }
-
-  startTimer() {
-    let timerContainer = document.getElementById("timer-container");
-    let timer = document.createElement("div");
-    timer.id = "timer";
-    timer.innerHTML = this.timer.count;
-    timerContainer.appendChild(timer);
-    this.timer.start();
   }
 
   renderOrder() {
