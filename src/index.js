@@ -16,12 +16,18 @@ const KEY_MAPPING = {
 
 import { Menu } from './menu';
 import Bento  from './bento';
+import { Order } from './order';
 
 document.addEventListener("DOMContentLoaded", () => {
   let gameCanvas = document.getElementById("game-canvas");
 
   let menu = new Menu();
-  let bento = new Bento(4, ["onigiri", "sashimi", "onigiri", "sashimi"]);
+
+  let num = [4, 6];
+  let idx = Math.floor(Math.random() * 2);
+  let order = new Order(num[idx]);
+
+  let bento = new Bento(num[idx], order.order);
 
   window.addEventListener("keydown", (e) => { 
     let key = e.key;
@@ -29,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
       bento.removeItem();
       return;
     }
-    
+
     let item = document.getElementById(`${KEY_MAPPING[key]}`);
     if (!item) return;
     item.classList.add("hover");
