@@ -9,6 +9,10 @@ document.addEventListener("DOMContentLoaded", () => {
   let gameCanvas = document.getElementById("game-canvas");
   let game = new Game();
 
+  let button = document.getElementById("play-again-button");
+
+  button.addEventListener("click", () => { game.restart() })
+  
   // test codes
   window.menu = menu;
   window.deleteBento = bento.deleteBento;

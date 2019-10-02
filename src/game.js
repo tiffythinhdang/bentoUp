@@ -81,6 +81,15 @@ class Game {
   }
 
   restart(){
+    document.getElementById("timer-container").innerHTML = "";
+    document.getElementById("score").innerHTML = "";
+    document.getElementById("customer-lost").innerHTML = "";
+    document.getElementById("speech-container").innerHTML = "";
+    document.getElementById("customer-container").innerHTML = "";
+    document.getElementById("bento-container").innerHTML = "";
+    Array.from(document.getElementsByTagName("img")).forEach(img => img.remove())
+
+    document.getElementById("modal").classList.add("hidden");
     return new Game();
   }
 
@@ -90,11 +99,11 @@ class Game {
 
   renderEndMessage(lost) {
     if (lost) {
-      let message = document.getElementById("modal");
-      message.toggleClass("hidden");
+      this.removeListenerOnWindow();
+      let modal = document.getElementById("modal");
+      modal.classList.remove("hidden");
     }
   }
-
 }
 
 export default Game;
