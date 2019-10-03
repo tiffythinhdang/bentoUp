@@ -270,6 +270,25 @@ header {
   padding-bottom: 0;
 }
 
+#type-instruction {
+  width: 800px;
+  padding: 10px 25px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
+  background: #4BAEA0;
+  margin-bottom: 25px;
+  color: white;
+  font-size: 24px;
+}
+
+#type-instruction > img {
+  width: auto;
+  height: 80px;
+}
+
 footer {
   display: flex;
   justify-content: center;
