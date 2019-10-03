@@ -30,12 +30,16 @@ class Game {
     this.interval = undefined;
     this.addListenerOnWindow = this.addListenerOnWindow.bind(this);
     this.removeListenerOnWindow = this.removeListenerOnWindow.bind(this);
+    this.addClickToMenuItems = this.addClickToMenuItems.bind(this);
+    this.tapItem = this.tapItem.bind(this);
+
     this.renderScore();
     this.start();
   }
 
   start() {
     this.addListenerOnWindow();
+    this.addClickToMenuItems();
     // this.interval = setInterval( this.checkState.bind(this), 1000 );
     this.startTimer();
   }
@@ -55,6 +59,7 @@ class Game {
     if (!item) return;
     item.classList.add("hover");
     game.bento.addItem(item.id);
+    this.checkState();
   }
 
   untapItem(e) {
@@ -72,6 +77,16 @@ class Game {
   removeListenerOnWindow() {
     window.removeEventListener("keydown",this.tapItem);
     window.removeEventListener("keyup",this.untapItem);
+  }
+
+  addClickToMenuItems() {
+    let menuItems = Array.from( document.getElementsByClassName("menu-item") );
+    menuItems.forEach(item => {
+      item.addEventListener("click", () => {
+        this.bento.addItem(item.id);
+        this.checkState();
+      })
+    })
   }
 
   startTimer() {
@@ -165,7 +180,7 @@ class Game {
 
     document.getElementById("modal").classList.add("hidden");
 
-    return new Game();
+    game = new Game();
   }
 
   lost() {
@@ -173,10 +188,27 @@ class Game {
   }
 
   renderEndMessage() {
+    const score = this.score;
+    
     this.removeListenerOnWindow();
     let message = document.getElementsByClassName("modal-message")[0];
-    let finalScore = (this.score > 1 ? `${this.score} orders!` : `${this.score} order!`);
-    message.innerHTML = `You have served ${finalScore}`;
+    let ranking = document.getElementById("ranking");
+    let finalScore = (score > 1 ? `${score} orders` : `${score} order`);
+    let rank;
+    if ( score >= 120 ) {
+      rank = "Master Chef";
+    } else if ( score >= 90 ) {
+      rank = "Head Chef";
+    } else if ( score >= 60 ) {
+      rank = "Sous Chef";
+    } else if (score >= 30) {
+      rank = "Junior Chef";
+    } else if (score >= 0) {
+      rank = "Apprentice";
+    }
+
+    message.innerHTML = `You served ${finalScore}!`;
+    ranking.innerHTML = `Rank: ${rank}`;
     document.getElementById("modal").classList.remove("hidden");
   }
 }
