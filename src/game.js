@@ -79,14 +79,14 @@ class Game {
   tapItem(e) {
     let key = e.key;
     if (key === "Backspace") {
-      game.bento.removeItem();
+      this.bento.removeItem();
       return;
     }
 
     let item = document.getElementById(`${KEY_MAPPING[key]}`);
     if (!item) return;
     item.classList.add("hover");
-    game.bento.addItem(item.id);
+    this.bento.addItem(item.id);
     this.checkState();
   }
 
