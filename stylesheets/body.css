@@ -71,7 +71,7 @@ input[type="submit"] {
   top: 10%;
   left: 20%;
   padding: 50px;
-  background: #B6E6BD;
+  background: white;
   box-shadow: 10px 10px 11px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
   font-size: 20px;
@@ -104,7 +104,6 @@ input[type="submit"] {
 }
 
 #instruction-1, #instruction-2, #instruction-3 {
-  width: 30%;
   height: 100%;
   font-family: 'Mansalva', cursive;
   color: #3E3E3E;
@@ -115,16 +114,20 @@ input[type="submit"] {
   margin-top: 15px;
 }
 
+#instruction-1 {
+  width: 20%;
+}
+
+#instruction-2, #instruction-3 {
+  width: 30%;
+}
+
 #instruction-1 > p, #instruction-2 > p, #instruction-3 > p {
   margin-bottom: 15px;
 }
 
-#instruction-2 > img, #instruction-3 > img {
+#instruction-1 > img, #instruction-2 > img, #instruction-3 > img {
   width: 80%;
-}
-
-#instruction-1 > img {
-  width: 70%;
 }
 
 #start-button {

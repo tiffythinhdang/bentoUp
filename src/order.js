@@ -1,5 +1,4 @@
 import { MENU_ITEMS } from "./menu";
-import Timer from '../src/timer';
 
 export const CUSTOMERS = {
   1: "../assets/customers/customer_1.png",
@@ -14,13 +13,11 @@ export class Order {
     this.numItems = numItems;
     this.order = [];
     this.numSeconds= numSeconds;
-    // this.timer = new Timer(numSeconds);
 
     this.generateCustomer();
     this.generateSpeechBubble();
     this.generateOrder();
     this.renderOrder();
-    // this.startTimer();
   }
 
   generateOrder() {
@@ -39,7 +36,6 @@ export class Order {
     let img = document.createElement("img");
     img.src = CUSTOMERS[idx];
     img.alt = "customer-icon";
-    // img.classList.add("animated");
     img.classList.add("bounceInRight");
     let customerContainer = document.getElementById("customer-container");
     customerContainer.appendChild(img);

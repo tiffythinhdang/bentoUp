@@ -39,11 +39,9 @@ class Game {
     this.start = this.start.bind(this);
 
     this.renderScore();
-    // this.start();
   }
 
   start() {
-    debugger
     this.addListenerOnWindow();
     this.addClickToMenuItems();
     this.addClickToRemoveButton();
@@ -240,9 +238,9 @@ class Game {
       rank = "Master Chef";
     } else if ( score >= 90 ) {
       rank = "Head Chef";
-    } else if ( score >= 60 ) {
+    } else if ( score >= 45 ) {
       rank = "Sous Chef";
-    } else if (score >= 30) {
+    } else if (score >= 15) {
       rank = "Junior Chef";
     } else if (score >= 0) {
       rank = "Apprentice";
