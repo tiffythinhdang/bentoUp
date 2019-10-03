@@ -17,14 +17,14 @@ const KEY_MAPPING = {
 class Game {
   constructor() {
     this.menu = new Menu();
+    
+    let numItems = this.generateRandomNum();
+    this.order = new Order(numItems, numItems === 4 ? 6 : 8 );
+    this.bento = new Bento(numItems, this.order);
+    this.timer = new Timer(this.order.numSeconds, this.checkState.bind(this));
 
-    let num = [4, 6];
-    let idx = Math.floor(Math.random() * 2);
-    this.order = new Order(num[idx], num[idx] === 4 ? 20 : 20);
-    this.bento = new Bento(num[idx], this.order);
     this.score = 0;
     this.customerLost = 0;
-    this.timer = new Timer(this.order.numSeconds);
 
     this.timeElapsed = 0;
     this.interval = undefined;
@@ -36,12 +36,12 @@ class Game {
 
   start() {
     this.addListenerOnWindow();
-    this.interval = setInterval( this.checkState.bind(this), 1000 );
+    // this.interval = setInterval( this.checkState.bind(this), 1000 );
     this.startTimer();
   }
 
   stop() {
-    clearInterval(this.interval);
+    // clearInterval(this.interval);
   }
 
   tapItem(e) {
@@ -89,13 +89,7 @@ class Game {
   }
 
   correctBento() {
-    if (this.bento.bento.length < this.bento.numItems) return false;
-
-    if (JSON.stringify(this.order.order) !== JSON.stringify(this.bento.bento)) {
-      return false;
-    } else {
-      return true;
-    }
+    return JSON.stringify(this.order.order) === JSON.stringify(this.bento.bento);
   }
 
   checkState() {
@@ -109,17 +103,8 @@ class Game {
       this.score += 1;
       this.renderScore();
 
-      this.order.deleteOrder();
-      this.bento.deleteBento();
-      this.timer.stop();
-      this.timer.deleteTimer();
-
-      let num = [4, 6];
-      let idx = Math.floor(Math.random() * 2);
-      this.order = new Order(num[idx], num[idx] === 4 ? 20 : 20);
-      this.bento = new Bento(num[idx], this.order);
-      this.timer = new Timer(this.order.numSeconds);
-      this.startTimer();
+      this.deleteGameRound();
+      this.generateGameRound();
 
     } else if ( this.timer.count <= 0 && !this.correctBento() ) {
       this.customerLost += 1;
@@ -131,18 +116,33 @@ class Game {
         this.timer.stop();
         return;
       }
-      this.order.deleteOrder();
-      this.bento.deleteBento();
-      this.timer.stop();
-      this.timer.deleteTimer();
-
-      let num = [4, 6];
-      let idx = Math.floor(Math.random() * 2);
-      this.order = new Order(num[idx], num[idx] === 4 ? 20 : 20);
-      this.bento = new Bento(num[idx], this.order);
-      this.timer = new Timer(this.order.numSeconds);
-      this.startTimer();
+      this.deleteGameRound();
+      this.generateGameRound();
     }
+  }
+
+  generateRandomNum() {
+    let num = [4, 6];
+    let idx = Math.floor(Math.random() * 2);
+    return num[idx];
+  }
+
+  deleteGameRound() {
+    this.bento.deleteBento();
+    let customer = document.getElementsByClassName("animated bounceInRight")[0];
+    customer.classList.remove("bounceInRight");
+    customer.classList.add("lightSpeedOut");
+    this.order.deleteOrder();
+    this.timer.stop();
+    this.timer.deleteTimer();
+  }
+
+  generateGameRound() {
+    let numItems = this.generateRandomNum();
+    this.order = new Order(numItems, numItems === 4 ? 6 : 8);
+    this.bento = new Bento(numItems, this.order);
+    this.timer = new Timer(this.order.numSeconds, this.checkState.bind(this));
+    this.startTimer();
   }
 
   renderCustomerLost() {
@@ -174,6 +174,9 @@ class Game {
 
   renderEndMessage() {
     this.removeListenerOnWindow();
+    let message = document.getElementsByClassName("modal-message")[0];
+    let finalScore = (this.score > 1 ? `${this.score} orders!` : `${this.score} order!`);
+    message.innerHTML = `You have served ${finalScore}`;
     document.getElementById("modal").classList.remove("hidden");
   }
 }

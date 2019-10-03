@@ -39,6 +39,8 @@ export class Order {
     let img = document.createElement("img");
     img.src = CUSTOMERS[idx];
     img.alt = "customer-icon";
+    img.classList.add("animated");
+    img.classList.add("bounceInRight");
     let customerContainer = document.getElementById("customer-container");
     customerContainer.appendChild(img);
   }

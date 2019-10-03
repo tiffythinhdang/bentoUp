@@ -53,15 +53,19 @@ input[type="submit"] {
   display: none;
 }
 
-#modal {
+/* #modal {
+  top: 0%;
+  bottom: 0%;
+  left: 0%;
+  right: 0%;
   width: 100%;
   height: 100%;
   position: absolute;
-}
+} */
 
 .modal-screen {
   z-index: 998;
-  position: absolute;
+  position: fixed;
   top: 0%;
   bottom: 0%;
   left: 0%;
@@ -71,13 +75,13 @@ input[type="submit"] {
 
 .modal-content {
   z-index: 999;
-  position: absolute;
+  position: fixed;
   background: white;
   border-radius: 10px;
   font-size: 20px;
   width: 40%;
-  height: 40%;
-  top: 30%;
+  height: 50%;
+  top: 25%;
   left: 30%;
   text-align: center;
   box-shadow: 8px 8px 4px rgba(0, 0, 0, 0.25);
@@ -85,19 +89,15 @@ input[type="submit"] {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  padding: 10px;
+  padding: 30px;
 }
 
 .modal-message {
-  width: 100%;
-  height: 20%;
-}
-
-.modal-message > p {
+  width: 100%; 
   font-family: 'Mansalva', cursive;
   color: #F58248;
-  font-size: 72px;
-  margin-bottom: 20px;
+  font-size: 54px;
+  margin-bottom: 10px;
 }
 
 #play-again-button {
@@ -116,7 +116,7 @@ input[type="submit"] {
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.mondal-links {
+.modal-links {
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -229,7 +229,6 @@ footer {
 #top-bar {
   width: 100%;
   height: 75px;
-  border-bottom: 2px solid #4BAEA0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -238,7 +237,6 @@ footer {
 #timer-container {
   height: 100%;
   width: 150px;
-  border: 1px solid black;
   font-size: 40px;
   display: flex;
   justify-content: center;
@@ -248,18 +246,17 @@ footer {
 #score {
   height: 100%;
   width: 150px;
-  border: 1px solid black;
   display: flex;
   justify-content: center;
   align-items: center;
   font-family: 'Mansalva', cursive;
+  color: #F58248;
   font-size: 40px;
 }
 
 #customer-lost {
   height: 100%;
   width: 150px;
-  border: 1px solid black;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -278,12 +275,12 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  z-index: 10;
 }
 
 #menu {
   width: 363px;
   height: 161px; 
-  border: 1px solid black;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -320,7 +317,6 @@ footer {
 #bento-container {
   width: 233px;
   height: 160px;
-  border: 1px solid black;
 }
 
 #bento {
@@ -373,13 +369,11 @@ footer {
 #speech-container {
   width: 275px;
   height: 175px;
-  border: 1px solid black;
 }
 
 #customer-container {
   width: 280px;
   height: 250px;
-  border: 1px solid black;
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -603,7 +597,7 @@ footer {
   margin-right: 50px;
 } */
 
-/* .animated {
+.animated {
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
   -webkit-animation-fill-mode: both;
@@ -663,7 +657,7 @@ footer {
   animation-name: lightSpeedIn;
   -webkit-animation-timing-function: ease-out;
   animation-timing-function: ease-out;
-} */
+} 
 
 /* @-webkit-keyframes lightSpeedOut {
   from {
@@ -677,7 +671,7 @@ footer {
   }
 } */
 
-/* @keyframes lightSpeedOut {
+@keyframes lightSpeedOut {
   from {
     opacity: 1;
   }
@@ -694,9 +688,9 @@ footer {
   animation-name: lightSpeedOut;
   -webkit-animation-timing-function: ease-in;
   animation-timing-function: ease-in;
-} */
+} 
 
-/* @-webkit-keyframes bounceInRight {
+@-webkit-keyframes bounceInRight {
   from,
   60%,
   75%,
@@ -775,4 +769,4 @@ footer {
 .bounceInRight {
   -webkit-animation-name: bounceInRight;
   animation-name: bounceInRight;
-} */
+}

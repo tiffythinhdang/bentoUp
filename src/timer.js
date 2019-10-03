@@ -1,8 +1,10 @@
 class Timer {
-  constructor(numSeconds) {
+  constructor(numSeconds, timerEndCallback) {
     this.interval = undefined;
     this.countFrom = numSeconds;
     this.count = this.countFrom;
+
+    this.timerEndCallback = timerEndCallback;
   }
 
   start() {
@@ -22,6 +24,7 @@ class Timer {
     if (this.count <= 0) {
       this.count = 0;
       clearInterval(this.interval);
+      this.timerEndCallback();
     }
     let timer = document.getElementById("timer");
     timer.innerHTML = this.count;
