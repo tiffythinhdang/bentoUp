@@ -48,6 +48,172 @@ input[type="submit"] {
   cursor: pointer;
 }
 
+/* modal and introdcution*/
+.hidden {
+  display: none;
+}
+
+.modal-screen, #introduction {
+  z-index: 998;
+  position: fixed;
+  top: 0%;
+  bottom: 0%;
+  left: 0%;
+  right: 0%;
+  background: rgba(0, 0, 0, .3);
+}
+
+#introduction-content {
+  z-index: 999;
+  position: fixed;
+  width: 60%;
+  height: 80%;
+  top: 10%;
+  left: 20%;
+  padding: 50px;
+  background: white;
+  box-shadow: 10px 10px 11px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  font-size: 20px;
+  line-height: 28px;
+  color: #3E3E3E;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#game-description {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#game-instruction {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 25px 0px;
+}
+
+#inline-bold-text {
+  font-family: 'Mansalva', cursive;
+  color: #F58248;
+  font-size: 35px;
+}
+
+#instruction-1, #instruction-2, #instruction-3 {
+  height: 100%;
+  font-family: 'Mansalva', cursive;
+  color: #3E3E3E;
+  font-size: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+#instruction-1 {
+  width: 20%;
+}
+
+#instruction-2, #instruction-3 {
+  width: 30%;
+}
+
+#instruction-1 > p, #instruction-2 > p, #instruction-3 > p {
+  margin-bottom: 15px;
+}
+
+#instruction-1 > img, #instruction-2 > img, #instruction-3 > img {
+  width: 80%;
+}
+
+#start-button {
+  width: 100%;
+  height: 54px;
+  background: #4BAEA0;
+  color: white;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+#start-button:hover {
+  background: #3A8E82;
+}
+
+.modal-content {
+  z-index: 999;
+  position: fixed;
+  background: white;
+  border-radius: 10px;
+  font-size: 20px;
+  width: 40%;
+  height: 50%;
+  top: 25%;
+  left: 30%;
+  text-align: center;
+  box-shadow: 8px 8px 4px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 30px;
+}
+
+.modal-message {
+  width: 100%; 
+  font-family: 'Mansalva', cursive;
+  color: #F58248;
+  font-size: 54px;
+  margin-bottom: 10px;
+}
+
+.suhi-chef.container {
+  height: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.suhi-chef.container > img {
+  height: 100%;
+  width: auto;
+  margin-right: 50px;
+}
+
+#ranking {
+  font-size: 28px;
+}
+
+#play-again-button {
+  width: 200px;
+  height: 54px;
+  font-size: 25px;
+  background-color: #4BAEA0;
+  color: white;
+  border-radius: 4px;
+  margin: 10px 0px;
+  position: relative;
+}
+
+#play-again-button:hover {
+  background: #3A8E82;
+}
+
+.modal-links {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0px;
+}
+
 /* body setup */
 body {
   height: 100%;
@@ -82,7 +248,7 @@ header {
 }
 
 .light.icon {
-  opacity: 0.3;
+  opacity: 0.5;
 }
 
 .icon > img {
@@ -97,6 +263,11 @@ header {
   color: #F58248;
   font-size: 88px;
   padding-bottom: 25px;
+}
+
+.small.game-title {
+  font-size: 72px;
+  padding-bottom: 0;
 }
 
 footer {
@@ -116,15 +287,6 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.left-img.container, .right-img.container {
-  width: 200px;
-  margin: 20px;
-}
-
-.left-img.container > img, .right-img.container >img {
-  width: 100%;
 }
 
 #game-container {
@@ -152,7 +314,6 @@ footer {
 #top-bar {
   width: 100%;
   height: 75px;
-  border-bottom: 2px solid #4BAEA0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -161,7 +322,6 @@ footer {
 #timer-container {
   height: 100%;
   width: 150px;
-  border: 1px solid black;
   font-size: 40px;
   display: flex;
   justify-content: center;
@@ -171,13 +331,25 @@ footer {
 #score {
   height: 100%;
   width: 150px;
-  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Mansalva', cursive;
+  color: #59A565;
+  font-size: 40px;
 }
 
 #customer-lost {
   height: 100%;
   width: 150px;
-  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#customer-lost > img {
+  width: 30%;
+  height: auto;
 }
 
 #counter {
@@ -188,12 +360,12 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  z-index: 10;
 }
 
 #menu {
   width: 363px;
   height: 161px; 
-  border: 1px solid black;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -218,7 +390,7 @@ footer {
   position: relative;
 }
 
-.menu-item:hover, .bento-item:hover, .hover {
+.menu-item:hover, .bento-item:hover, .hover, button:hover {
   top: -5px;
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
 }
@@ -227,10 +399,24 @@ footer {
   width: 100%;
 }
 
+#remove-item-button {
+  padding: 0 10px;
+  height: 54px;
+  border-radius: 4px;
+  background: #F58248;
+  color: white;
+  font-size: 24px;
+  text-align: center;
+  position: relative;
+}
+
+#remove-item-button:hover {
+  background: #D16730;
+}
+
 #bento-container {
   width: 233px;
   height: 160px;
-  border: 1px solid black;
 }
 
 #bento {
@@ -274,6 +460,15 @@ footer {
   align-items: flex-end;
 }
 
+#level-up {
+  position: absolute;
+  text-align: center;
+  font-family: 'Mansalva', cursive;
+  font-size: 75px;
+  color: #F58248;
+  z-index: 20;
+}
+
 #main-interaction {
   display: flex;
   justify-content: space-between;
@@ -283,13 +478,11 @@ footer {
 #speech-container {
   width: 275px;
   height: 175px;
-  border: 1px solid black;
 }
 
 #customer-container {
   width: 280px;
   height: 250px;
-  border: 1px solid black;
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -503,146 +696,27 @@ footer {
     width: 40px;
     height: 40px;
   }
-
 }
 
-/* #game-canvas > img {
-  height: 275px;
-  width: auto;
-  float: right;
-  margin-right: 50px;
-} */
-
-/* .animated {
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-}
-
-@-webkit-keyframes lightSpeedIn {
-  from {
-    -webkit-transform: translate3d(100%, 0, 0) skewX(-30deg);
-    transform: translate3d(100%, 0, 0) skewX(-30deg);
-    opacity: 0;
-  }
-
-  60% {
-    -webkit-transform: skewX(20deg);
-    transform: skewX(20deg);
-    opacity: 1;
-  }
-
-  80% {
-    -webkit-transform: skewX(-5deg);
-    transform: skewX(-5deg);
-  }
-
-  to {
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-  }
-}
-
-@keyframes lightSpeedIn {
-  from {
-    -webkit-transform: translate3d(100%, 0, 0) skewX(-30deg);
-    transform: translate3d(100%, 0, 0) skewX(-30deg);
-    opacity: 0;
-  }
-
-  60% {
-    -webkit-transform: skewX(20deg);
-    transform: skewX(20deg);
-    opacity: 1;
-  }
-
-  80% {
-    -webkit-transform: skewX(-5deg);
-    transform: skewX(-5deg);
-  }
-
-  to {
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-  }
-}
-
-.lightSpeedIn {
-  -webkit-animation-name: lightSpeedIn;
-  animation-name: lightSpeedIn;
-  -webkit-animation-timing-function: ease-out;
-  animation-timing-function: ease-out;
-} */
-
-/* @-webkit-keyframes lightSpeedOut {
+/* Animation */
+@keyframes lightSpeedOut {
   from {
     opacity: 1;
   }
 
   to {
-    -webkit-transform: translate3d(100%, 0, 0) skewX(30deg);
-    transform: translate3d(100%, 0, 0) skewX(30deg);
-    opacity: 0;
-  }
-} */
-
-/* @keyframes lightSpeedOut {
-  from {
-    opacity: 1;
-  }
-
-  to {
-    -webkit-transform: translate3d(100%, 0, 0) skewX(30deg);
     transform: translate3d(100%, 0, 0) skewX(30deg);
     opacity: 0;
   }
 }
 
 .lightSpeedOut {
-  -webkit-animation-name: lightSpeedOut;
   animation-name: lightSpeedOut;
-  -webkit-animation-timing-function: ease-in;
   animation-timing-function: ease-in;
-} */
 
-/* @-webkit-keyframes bounceInRight {
-  from,
-  60%,
-  75%,
-  90%,
-  to {
-    -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-  }
-
-  from {
-    opacity: 0;
-    -webkit-transform: translate3d(3000px, 0, 0);
-    transform: translate3d(3000px, 0, 0);
-  }
-
-  60% {
-    opacity: 1;
-    -webkit-transform: translate3d(-25px, 0, 0);
-    transform: translate3d(-25px, 0, 0);
-  }
-
-  75% {
-    -webkit-transform: translate3d(10px, 0, 0);
-    transform: translate3d(10px, 0, 0);
-  }
-
-  90% {
-    -webkit-transform: translate3d(-5px, 0, 0);
-    transform: translate3d(-5px, 0, 0);
-  }
-
-  to {
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-  }
-}
+  animation-duration: 3s;
+  animation-fill-mode: both;
+} 
 
 @keyframes bounceInRight {
   from,
@@ -650,39 +724,71 @@ footer {
   75%,
   90%,
   to {
-    -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
     animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
   }
 
   from {
     opacity: 0;
-    -webkit-transform: translate3d(3000px, 0, 0);
     transform: translate3d(3000px, 0, 0);
   }
 
   60% {
     opacity: 1;
-    -webkit-transform: translate3d(-25px, 0, 0);
     transform: translate3d(-25px, 0, 0);
   }
 
   75% {
-    -webkit-transform: translate3d(10px, 0, 0);
     transform: translate3d(10px, 0, 0);
   }
 
   90% {
-    -webkit-transform: translate3d(-5px, 0, 0);
     transform: translate3d(-5px, 0, 0);
   }
 
   to {
-    -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
   }
 }
 
 .bounceInRight {
-  -webkit-animation-name: bounceInRight;
   animation-name: bounceInRight;
-} */
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  animation-name: fadeIn;
+  animation-delay: 0.5s;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+@keyframes flash {
+  from,
+  40%,
+  80% {
+    opacity: 1;
+  }
+
+  20%,
+  60%,
+  to {
+    opacity: 0;
+  }
+}
+
+.flash {
+  animation-name: flash;
+  animation-duration: 2s;
+  animation-fill-mode: both;
+}

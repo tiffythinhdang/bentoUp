@@ -1,5 +1,4 @@
 import { MENU_ITEMS } from "./menu";
-import { Order } from './order';
 
 class Bento {
   constructor(numItems, order) {
@@ -55,16 +54,6 @@ class Bento {
       img.src = MENU_ITEMS[item];
       img.alt = `${item}-icon`;
       bentoItem.appendChild(img);
-    }
-    this.check()
-  }
-
-  check() {
-    if (this.bento.length < this.numItems) return;
-    if (JSON.stringify(this.order) !== JSON.stringify(this.bento)) {
-      setTimeout(() => {alert("you lose")}, 1000);
-    } else {
-      setTimeout(() => {alert("you win")}, 1000);
     }
   }
 }

@@ -1,5 +1,4 @@
 import { MENU_ITEMS } from "./menu";
-import Timer from '../src/timer';
 
 export const CUSTOMERS = {
   1: "../assets/customers/customer_1.png",
@@ -13,13 +12,12 @@ export class Order {
   constructor(numItems, numSeconds){
     this.numItems = numItems;
     this.order = [];
-    this.timer = new Timer(numSeconds);
+    this.numSeconds= numSeconds;
 
-    this.generateOrder();
     this.generateCustomer();
     this.generateSpeechBubble();
+    this.generateOrder();
     this.renderOrder();
-    this.startTimer();
   }
 
   generateOrder() {
@@ -38,6 +36,7 @@ export class Order {
     let img = document.createElement("img");
     img.src = CUSTOMERS[idx];
     img.alt = "customer-icon";
+    img.classList.add("bounceInRight");
     let customerContainer = document.getElementById("customer-container");
     customerContainer.appendChild(img);
   }
@@ -46,6 +45,7 @@ export class Order {
     let speechContainer = document.getElementById("speech-container");
     let speechBubble = document.createElement("div");
     speechBubble.classList.add("speech-bubble");
+    speechBubble.classList.add("fadeIn");
     speechContainer.appendChild(speechBubble);
   }
 
@@ -56,19 +56,11 @@ export class Order {
     return img;
   }
 
-  startTimer() {
-    let timerContainer = document.getElementById("timer-container");
-    let timer = document.createElement("div");
-    timer.id = "timer";
-    timer.innerHTML = this.timer.count;
-    timerContainer.appendChild(timer);
-    this.timer.start();
-  }
-
   renderOrder() {
     let orderContainer = document.createElement("div");
     orderContainer.classList.add("order-container");
     orderContainer.classList.add(`box-${this.numItems}`);
+    orderContainer.classList.add("fadeIn");
 
     this.order.forEach(item => {
       let orderItem = document.createElement("div");
@@ -78,5 +70,10 @@ export class Order {
     });
     let speechContainer = document.getElementById("speech-container");
     speechContainer.appendChild(orderContainer);
+  }
+
+  deleteOrder() {
+    document.getElementById("speech-container").innerHTML = "";
+    document.getElementById("customer-container").innerHTML = "";
   }
 }

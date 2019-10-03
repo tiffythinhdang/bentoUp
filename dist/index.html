@@ -11,6 +11,61 @@
 </head>
 
 <body>
+  <div id="introduction">
+    <div id="introduction-content">
+      <h1 class="small game-title">bentoUp</h1>
+      <div id="game-description">
+        <p><span id="inline-bold-text">bentoUp</span> is an food-themed matching game where the player takes the roll of an apprentice chef of a bento shop in Kyoto, Japan. Sharpen your skills as you prepare and serve delicious bento boxes to customers. Level up and become to the head chef of this popular shop in town!
+      </p>
+
+      <div id="game-instruction">
+        <div id="instruction-1">
+          <p>get an order</p>
+          <img src="../assets/introduction/intro_order.png" alt="order-image">
+        </div>
+
+        <div id="instruction-2">
+          <p>click/ type to choose the item</p>
+          <img src="../assets/introduction/intro_choose_item.png" alt="choose-image">
+        </div>
+
+        <div id="instruction-3">
+          <p>backspace/ click "Remove" to deselect</p>
+          <img src="../assets/introduction/intro_deselect_item.png" alt="deselect-image">
+        </div>
+      </div>
+
+      </div>
+      <button id="start-button">START GAME!</button>
+    </div>
+  </div>
+
+  <div id="modal" class="hidden">
+    <div class="modal-screen"></div>
+    <div class="modal-content">
+      <div class="modal-message"></div>
+
+      <div class="suhi-chef container">
+        <img src='../assets/sushi_chef.png' alt="chef-img" />
+        <p id="ranking"></p>
+      </div>
+      
+      <button id="play-again-button">Play again</button>
+
+      <div class="modal-links">
+        <a class="light medium icon" href="https://github.com/tiffythinhdang" target="_blank">
+          <img src="../assets/github_icon_green.png" alt="github-icon">
+        </a>
+        <a class="light medium icon" href="https://www.linkedin.com/in/tiffany-thinh-dang-8bb07562/" target="_blank">
+          <img src="../assets//linkedin_icon_green.png" alt="linkedin-icon">
+        </a>
+        <a class="light medium icon" href="https://tiffanytdang.com/" target="_blank">
+          <img src="../assets//contact_icon_green.png" alt="contact-icon">
+        </a>
+      </div>
+    </div>
+  </div>
+
   <header class="links">
     <a 
       class="medium icon" 
@@ -22,13 +77,13 @@
       class="medium icon" 
       href="https://www.linkedin.com/in/tiffany-thinh-dang-8bb07562/"
       target="_blank">
-      <img src="../assets//linkedin_icon_green.png" alt="linkedin-icon">
+      <img src="../assets/linkedin_icon_green.png" alt="linkedin-icon">
     </a>
     <a 
       class="medium icon" 
       href="https://tiffanytdang.com/"
       target="_blank">
-      <img src="../assets//contact_icon_green.png" alt="contact-icon">
+      <img src="../assets/contact_icon_green.png" alt="contact-icon">
     </a>
   </header>
 
@@ -36,18 +91,15 @@
 
 
   <main class="main-content">
-    <!-- <div class="left-img container">
-      <img src='../assets/sushi_chef.png' alt="chef-img" />
-    </div> -->
-
     <div id="game-canvas">
       <div id="top-bar">
         <div id="timer-container"></div>
-        <div id="score"></div>
+        <div id="score">0 order</div>
         <div id="customer-lost"></div>
       </div>
 
       <div id="main-interaction-container">
+        <div id="level-up"></div>
         <div id="main-interaction">
           <div id="speech-container">
           </div>
@@ -60,6 +112,8 @@
       <div id="counter">
         <div id="bento-container">
         </div>
+
+        <button id="remove-item-button">Remove</button>
 
         <div id="menu">
           <div class="menu-first-row">
@@ -77,13 +131,9 @@
         </div>
       </div>
     </div>
-
-    <script type="application/javascript" src="./main.js"></script>
-
-    <!-- <div class="right-img container">
-      <img src='../assets/sushi_chef.png' alt="chef-img" />
-    </div> -->
   </main>
+
+  <script type="application/javascript" src="./main.js"></script>
 
   <footer>
     <p>&copy; 2019 Designed and Developed by Tiffany Dang</p>
