@@ -36,12 +36,14 @@ class Game {
     this.checkTimeElapsed = this.checkTimeElapsed.bind(this);
     this.flashLevelUpMessage = this.flashLevelUpMessage.bind(this);
     this.tapItem = this.tapItem.bind(this);
+    this.start = this.start.bind(this);
 
     this.renderScore();
-    this.start();
+    // this.start();
   }
 
   start() {
+    debugger
     this.addListenerOnWindow();
     this.addClickToMenuItems();
     this.addClickToRemoveButton();
@@ -57,7 +59,7 @@ class Game {
       message.classList.add("flash")
       message.innerHTML = "Speed Up!";
       container.appendChild(message);
-    }, 10000);
+    }, 30000);
   }
 
   increaseDifficulty(numItems) {
@@ -118,7 +120,7 @@ class Game {
   }
 
   addClickToRemoveButton() {
-    let removeBtn = document.getElementById("remove-item");
+    let removeBtn = document.getElementById("remove-item-button");
     removeBtn.addEventListener("click", () => {
       this.bento.removeItem();
       this.checkState();

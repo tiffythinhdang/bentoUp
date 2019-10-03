@@ -5,16 +5,15 @@ import Game  from './game';
 document.addEventListener("DOMContentLoaded", () => {
   let game = new Game();
 
-  let button = document.getElementById("play-again-button");
+  let startButton = document.getElementById("start-button");
+  let playAgainButton = document.getElementById("play-again-button");
 
-  button.addEventListener("click", () => { 
-    game.restart();
+  startButton.addEventListener("click", () => { 
+    document.getElementById("introduction").classList.add("hidden");
+    game.start();
   })
 
-  // test codes
-  window.menu = menu;
-  window.deleteBento = bento.deleteBento;
-  window.game = game;
-  window.removeListenerOnWindow = game.removeListenerOnWindow;
-  // test codes
+  playAgainButton.addEventListener("click", () => { 
+    game.restart();
+  })
 });

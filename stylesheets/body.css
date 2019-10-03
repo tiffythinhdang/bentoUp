@@ -48,22 +48,12 @@ input[type="submit"] {
   cursor: pointer;
 }
 
-/* modal */
+/* modal and introdcution*/
 .hidden {
   display: none;
 }
 
-/* #modal {
-  top: 0%;
-  bottom: 0%;
-  left: 0%;
-  right: 0%;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-} */
-
-.modal-screen {
+.modal-screen, #introduction {
   z-index: 998;
   position: fixed;
   top: 0%;
@@ -71,6 +61,86 @@ input[type="submit"] {
   left: 0%;
   right: 0%;
   background: rgba(0, 0, 0, .3);
+}
+
+#introduction-content {
+  z-index: 999;
+  position: fixed;
+  width: 60%;
+  height: 80%;
+  top: 10%;
+  left: 20%;
+  padding: 50px;
+  background: #B6E6BD;
+  box-shadow: 10px 10px 11px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  font-size: 20px;
+  line-height: 28px;
+  color: #3E3E3E;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#game-description {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#game-instruction {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 25px 0px;
+}
+
+#inline-bold-text {
+  font-family: 'Mansalva', cursive;
+  color: #F58248;
+  font-size: 35px;
+}
+
+#instruction-1, #instruction-2, #instruction-3 {
+  width: 30%;
+  height: 100%;
+  font-family: 'Mansalva', cursive;
+  color: #3E3E3E;
+  font-size: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+#instruction-1 > p, #instruction-2 > p, #instruction-3 > p {
+  margin-bottom: 15px;
+}
+
+#instruction-2 > img, #instruction-3 > img {
+  width: 80%;
+}
+
+#instruction-1 > img {
+  width: 70%;
+}
+
+#start-button {
+  width: 100%;
+  height: 54px;
+  background: #4BAEA0;
+  color: white;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+#start-button:hover {
+  background: #3A8E82;
 }
 
 .modal-content {
@@ -129,8 +199,7 @@ input[type="submit"] {
 }
 
 #play-again-button:hover {
-  top: -5px;
-  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  background: #3A8E82;
 }
 
 .modal-links {
@@ -191,6 +260,11 @@ header {
   color: #F58248;
   font-size: 88px;
   padding-bottom: 25px;
+}
+
+.small.game-title {
+  font-size: 72px;
+  padding-bottom: 0;
 }
 
 footer {
@@ -322,7 +396,7 @@ footer {
   width: 100%;
 }
 
-#remove-item {
+#remove-item-button {
   padding: 0 10px;
   height: 54px;
   border-radius: 4px;
@@ -331,6 +405,10 @@ footer {
   font-size: 24px;
   text-align: center;
   position: relative;
+}
+
+#remove-item-button:hover {
+  background: #D16730;
 }
 
 #bento-container {
