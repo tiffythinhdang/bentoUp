@@ -27,7 +27,7 @@ class Game {
     this.customerLost = 0;
 
     this.timeElapsed = 0;
-    this.interval = undefined;
+
     this.addListenerOnWindow = this.addListenerOnWindow.bind(this);
     this.removeListenerOnWindow = this.removeListenerOnWindow.bind(this);
     this.addClickToMenuItems = this.addClickToMenuItems.bind(this);
@@ -40,12 +40,7 @@ class Game {
   start() {
     this.addListenerOnWindow();
     this.addClickToMenuItems();
-    // this.interval = setInterval( this.checkState.bind(this), 1000 );
     this.startTimer();
-  }
-
-  stop() {
-    // clearInterval(this.interval);
   }
 
   tapItem(e) {
@@ -109,7 +104,6 @@ class Game {
 
   checkState() {
     if (this.lost()) {
-      this.stop();
       this.renderEndMessage();
       return;
     }
@@ -126,7 +120,6 @@ class Game {
       this.renderCustomerLost();
 
       if (this.lost()) {
-        this.stop();
         this.renderEndMessage();
         this.timer.stop();
         return;
@@ -144,7 +137,7 @@ class Game {
 
   deleteGameRound() {
     this.bento.deleteBento();
-    let customer = document.getElementsByClassName("animated bounceInRight")[0];
+    let customer = document.getElementsByClassName("bounceInRight")[0];
     customer.classList.remove("bounceInRight");
     customer.classList.add("lightSpeedOut");
     this.order.deleteOrder();
@@ -176,11 +169,13 @@ class Game {
     document.getElementById("customer-lost").innerHTML = "";
     this.order.deleteOrder();
     this.bento.deleteBento();
-    this.menu.deleteMenu();
-
+    this.score = 0;
+    this.customerLost = 0;
+    this.renderScore();
+    
     document.getElementById("modal").classList.add("hidden");
-
-    game = new Game();
+    
+    this.generateGameRound()
   }
 
   lost() {

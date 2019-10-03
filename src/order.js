@@ -16,9 +16,9 @@ export class Order {
     this.numSeconds= numSeconds;
     // this.timer = new Timer(numSeconds);
 
-    this.generateOrder();
     this.generateCustomer();
     this.generateSpeechBubble();
+    this.generateOrder();
     this.renderOrder();
     // this.startTimer();
   }
@@ -39,7 +39,7 @@ export class Order {
     let img = document.createElement("img");
     img.src = CUSTOMERS[idx];
     img.alt = "customer-icon";
-    img.classList.add("animated");
+    // img.classList.add("animated");
     img.classList.add("bounceInRight");
     let customerContainer = document.getElementById("customer-container");
     customerContainer.appendChild(img);
@@ -49,6 +49,7 @@ export class Order {
     let speechContainer = document.getElementById("speech-container");
     let speechBubble = document.createElement("div");
     speechBubble.classList.add("speech-bubble");
+    speechBubble.classList.add("fadeIn");
     speechContainer.appendChild(speechBubble);
   }
 
@@ -63,6 +64,7 @@ export class Order {
     let orderContainer = document.createElement("div");
     orderContainer.classList.add("order-container");
     orderContainer.classList.add(`box-${this.numItems}`);
+    orderContainer.classList.add("fadeIn");
 
     this.order.forEach(item => {
       let orderItem = document.createElement("div");

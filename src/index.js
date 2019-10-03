@@ -1,8 +1,5 @@
 console.log("Webpack is working!")
 
-// const Game = require("./game");
-// const GameView = require("./game_view");
-
 import Game  from './game';
 
 document.addEventListener("DOMContentLoaded", () => {
