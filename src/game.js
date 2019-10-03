@@ -26,12 +26,15 @@ class Game {
     this.score = 0;
     this.customerLost = 0;
 
-    this.timeElapsed = 0;
+    this.timeElapsed = new Date();
+    this.levelUpInterval = undefined;
 
     this.addListenerOnWindow = this.addListenerOnWindow.bind(this);
     this.removeListenerOnWindow = this.removeListenerOnWindow.bind(this);
     this.addClickToMenuItems = this.addClickToMenuItems.bind(this);
     this.addClickToRemoveButton = this.addClickToRemoveButton.bind(this);
+    this.checkTimeElapsed = this.checkTimeElapsed.bind(this);
+    this.flashLevelUpMessage = this.flashLevelUpMessage.bind(this);
     this.tapItem = this.tapItem.bind(this);
 
     this.renderScore();
@@ -43,6 +46,34 @@ class Game {
     this.addClickToMenuItems();
     this.addClickToRemoveButton();
     this.startTimer();
+    this.flashLevelUpMessage();
+  }
+
+  flashLevelUpMessage() {
+    this.levelUpInterval = setInterval(() => {
+      let container = document.getElementById("level-up")
+      container.innerHTML = "";
+      let message = document.createElement("p");
+      message.classList.add("flash")
+      message.innerHTML = "Speed Up!";
+      container.appendChild(message);
+    }, 10000);
+  }
+
+  increaseDifficulty(numItems) {
+    if ( this.checkTimeElapsed() > 120 ) {
+      return new Order(numItems, numItems === 4 ? 3 : 5);
+    } else if ( this.checkTimeElapsed() > 60 ) {
+      return new Order(numItems, numItems === 4 ? 4 : 6);
+    } else if ( this.checkTimeElapsed() >= 30 ) {
+      return new Order(numItems, numItems === 4 ? 5 : 7);
+    } else if ( this.checkTimeElapsed() >= 0 ) {
+      return new Order(numItems, numItems === 4 ? 6 : 8);
+    }
+  }
+
+  checkTimeElapsed() {
+    return ( new Date() - this.timeElapsed ) / 1000;
   }
 
   tapItem(e) {
@@ -157,7 +188,7 @@ class Game {
 
   generateGameRound() {
     let numItems = this.generateRandomNum();
-    this.order = new Order(numItems, numItems === 4 ? 6 : 8);
+    this.order = this.increaseDifficulty(numItems);
     this.bento = new Bento(numItems, this.order);
     this.timer = new Timer(this.order.numSeconds, this.checkState.bind(this));
     this.startTimer();
@@ -180,10 +211,12 @@ class Game {
     this.order.deleteOrder();
     this.bento.deleteBento();
     this.score = 0;
-    this.customerLost = 0;
     this.renderScore();
+    this.customerLost = 0;
+    this.timeElapsed = new Date();
     
     document.getElementById("modal").classList.add("hidden");
+    this.flashLevelUpMessage();
     
     this.generateGameRound()
   }
@@ -193,6 +226,7 @@ class Game {
   }
 
   renderEndMessage() {
+    clearInterval(this.levelUpInterval);
     const score = this.score;
     
     this.removeListenerOnWindow();
