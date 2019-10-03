@@ -5,12 +5,12 @@ import Timer from './timer';
 
 const KEY_MAPPING = {
   "a": "onigiri",
-  "w": "sashimi",
-  "e": "pickles",
-  "f": "tempura",
+  "s": "sashimi",
+  "d": "pickles",
+  "e": "tempura",
   "j": "fish",
-  "i": "tamago",
-  "o": "meatballs",
+  "k": "tamago",
+  "l": "meatballs",
   ";": "sushi-roll"
 }
 
@@ -31,6 +31,7 @@ class Game {
     this.addListenerOnWindow = this.addListenerOnWindow.bind(this);
     this.removeListenerOnWindow = this.removeListenerOnWindow.bind(this);
     this.addClickToMenuItems = this.addClickToMenuItems.bind(this);
+    this.addClickToRemoveButton = this.addClickToRemoveButton.bind(this);
     this.tapItem = this.tapItem.bind(this);
 
     this.renderScore();
@@ -40,6 +41,7 @@ class Game {
   start() {
     this.addListenerOnWindow();
     this.addClickToMenuItems();
+    this.addClickToRemoveButton();
     this.startTimer();
   }
 
@@ -81,6 +83,14 @@ class Game {
         this.bento.addItem(item.id);
         this.checkState();
       })
+    })
+  }
+
+  addClickToRemoveButton() {
+    let removeBtn = document.getElementById("remove-item");
+    removeBtn.addEventListener("click", () => {
+      this.bento.removeItem();
+      this.checkState();
     })
   }
 

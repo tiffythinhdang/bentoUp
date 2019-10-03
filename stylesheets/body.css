@@ -322,13 +322,24 @@ footer {
   position: relative;
 }
 
-.menu-item:hover, .bento-item:hover, .hover {
+.menu-item:hover, .bento-item:hover, .hover, button:hover {
   top: -5px;
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .menu-item > img, .bento-item > img {
   width: 100%;
+}
+
+#remove-item {
+  padding: 0 10px;
+  height: 54px;
+  border-radius: 4px;
+  background: #F58248;
+  color: white;
+  font-size: 24px;
+  text-align: center;
+  position: relative;
 }
 
 #bento-container {
