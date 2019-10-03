@@ -27,14 +27,21 @@ class Game {
     this.timer = new Timer(this.order.numSeconds);
 
     this.timeElapsed = 0;
+    this.interval = undefined;
     this.addListenerOnWindow = this.addListenerOnWindow.bind(this);
     this.removeListenerOnWindow = this.removeListenerOnWindow.bind(this);
+    this.renderScore();
     this.start();
   }
 
   start() {
     this.addListenerOnWindow();
-    // this.startTimer();
+    this.interval = setInterval( this.checkState.bind(this), 1000 );
+    this.startTimer();
+  }
+
+  stop() {
+    clearInterval(this.interval);
   }
 
   tapItem(e) {
@@ -76,20 +83,88 @@ class Game {
     this.timer.start();
   }
 
-  checkState() {
-
+  renderScore(){
+    let score = document.getElementById("score")
+    score.innerHTML = (this.score > 1 ? `${this.score} orders` : `${this.score} order`);
   }
 
-  restart(){
+  correctBento() {
+    if (this.bento.bento.length < this.bento.numItems) return false;
+
+    if (JSON.stringify(this.order.order) !== JSON.stringify(this.bento.bento)) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  checkState() {
+    if (this.lost()) {
+      this.stop();
+      this.renderEndMessage();
+      return;
+    }
+
+    if (this.timer.count > 0 && this.correctBento()) {
+      this.score += 1;
+      this.renderScore();
+
+      this.order.deleteOrder();
+      this.bento.deleteBento();
+      this.timer.stop();
+      this.timer.deleteTimer();
+
+      let num = [4, 6];
+      let idx = Math.floor(Math.random() * 2);
+      this.order = new Order(num[idx], num[idx] === 4 ? 20 : 20);
+      this.bento = new Bento(num[idx], this.order);
+      this.timer = new Timer(this.order.numSeconds);
+      this.startTimer();
+
+    } else if ( this.timer.count <= 0 && !this.correctBento() ) {
+      this.customerLost += 1;
+      this.renderCustomerLost();
+
+      if (this.lost()) {
+        this.stop();
+        this.renderEndMessage();
+        this.timer.stop();
+        return;
+      }
+      this.order.deleteOrder();
+      this.bento.deleteBento();
+      this.timer.stop();
+      this.timer.deleteTimer();
+
+      let num = [4, 6];
+      let idx = Math.floor(Math.random() * 2);
+      this.order = new Order(num[idx], num[idx] === 4 ? 20 : 20);
+      this.bento = new Bento(num[idx], this.order);
+      this.timer = new Timer(this.order.numSeconds);
+      this.startTimer();
+    }
+  }
+
+  renderCustomerLost() {
+    let customerLost = document.getElementById("customer-lost");
+    customerLost.innerHTML = "";
+    for (let i = 1; i <= this.customerLost; i++) {
+      let cross = document.createElement("img");
+      cross.src = "../assets/cross_mark.png";
+      customerLost.appendChild(cross);
+    }
+  }
+
+  restart() {
     document.getElementById("timer-container").innerHTML = "";
     document.getElementById("score").innerHTML = "";
     document.getElementById("customer-lost").innerHTML = "";
-    document.getElementById("speech-container").innerHTML = "";
-    document.getElementById("customer-container").innerHTML = "";
-    document.getElementById("bento-container").innerHTML = "";
-    Array.from(document.getElementsByTagName("img")).forEach(img => img.remove())
+    this.order.deleteOrder();
+    this.bento.deleteBento();
+    this.menu.deleteMenu();
 
     document.getElementById("modal").classList.add("hidden");
+
     return new Game();
   }
 
@@ -97,12 +172,9 @@ class Game {
     return this.customerLost >= 3;
   }
 
-  renderEndMessage(lost) {
-    if (lost) {
-      this.removeListenerOnWindow();
-      let modal = document.getElementById("modal");
-      modal.classList.remove("hidden");
-    }
+  renderEndMessage() {
+    this.removeListenerOnWindow();
+    document.getElementById("modal").classList.remove("hidden");
   }
 }
 

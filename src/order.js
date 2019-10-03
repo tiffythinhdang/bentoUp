@@ -71,4 +71,9 @@ export class Order {
     let speechContainer = document.getElementById("speech-container");
     speechContainer.appendChild(orderContainer);
   }
+
+  deleteOrder() {
+    document.getElementById("speech-container").innerHTML = "";
+    document.getElementById("customer-container").innerHTML = "";
+  }
 }

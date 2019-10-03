@@ -39,4 +39,11 @@ export class Menu {
       item.appendChild(menuItem.render());
     }); 
   }
+
+  deleteMenu() {
+    Array.from(document.getElementById("menu")
+      .getElementsByTagName("img"))
+      .forEach(img => img.remove());
+    document.getElementById("modal").classList.add("hidden");
+  }
 }

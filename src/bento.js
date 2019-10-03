@@ -56,18 +56,18 @@ class Bento {
       img.alt = `${item}-icon`;
       bentoItem.appendChild(img);
     }
-    this.check()
+    // this.check()
   }
 
-  check() {
-    if (this.bento.length < this.numItems) return;
-    debugger
-    if (JSON.stringify(this.order.order) !== JSON.stringify(this.bento)) {
-      setTimeout(() => {alert("you lose")}, 1000);
-    } else {
-      setTimeout(() => {alert("you win")}, 1000);
-    }
-  }
+  // check() {
+  //   if (this.bento.length < this.numItems) return;
+  //   debugger
+  //   if (JSON.stringify(this.order.order) !== JSON.stringify(this.bento)) {
+  //     setTimeout(() => {alert("you lose")}, 1000);
+  //   } else {
+  //     setTimeout(() => {alert("you win")}, 1000);
+  //   }
+  // }
 }
 
 export default Bento;
