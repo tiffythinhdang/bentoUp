@@ -593,6 +593,101 @@ footer {
   height: 100%;
 }
 
+/* Animation */
+@keyframes lightSpeedOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    transform: translate3d(100%, 0, 0) skewX(30deg);
+    opacity: 0;
+  }
+}
+
+.lightSpeedOut {
+  animation-name: lightSpeedOut;
+  animation-timing-function: ease-in;
+
+  animation-duration: 3s;
+  animation-fill-mode: both;
+} 
+
+@keyframes bounceInRight {
+  from,
+  60%,
+  75%,
+  90%,
+  to {
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  from {
+    opacity: 0;
+    transform: translate3d(3000px, 0, 0);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translate3d(-25px, 0, 0);
+  }
+
+  75% {
+    transform: translate3d(10px, 0, 0);
+  }
+
+  90% {
+    transform: translate3d(-5px, 0, 0);
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.bounceInRight {
+  animation-name: bounceInRight;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  animation-name: fadeIn;
+  animation-delay: 0.5s;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+@keyframes flash {
+  from,
+  40%,
+  80% {
+    opacity: 1;
+  }
+
+  20%,
+  60%,
+  to {
+    opacity: 0;
+  }
+}
+
+.flash {
+  animation-name: flash;
+  animation-duration: 2s;
+  animation-fill-mode: both;
+}
+
 /* Media-query */
 @media only screen and (max-width: 568px) {
   .left-img.container, .right-img.container {
@@ -715,99 +810,4 @@ footer {
     width: 40px;
     height: 40px;
   }
-}
-
-/* Animation */
-@keyframes lightSpeedOut {
-  from {
-    opacity: 1;
-  }
-
-  to {
-    transform: translate3d(100%, 0, 0) skewX(30deg);
-    opacity: 0;
-  }
-}
-
-.lightSpeedOut {
-  animation-name: lightSpeedOut;
-  animation-timing-function: ease-in;
-
-  animation-duration: 3s;
-  animation-fill-mode: both;
-} 
-
-@keyframes bounceInRight {
-  from,
-  60%,
-  75%,
-  90%,
-  to {
-    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-  }
-
-  from {
-    opacity: 0;
-    transform: translate3d(3000px, 0, 0);
-  }
-
-  60% {
-    opacity: 1;
-    transform: translate3d(-25px, 0, 0);
-  }
-
-  75% {
-    transform: translate3d(10px, 0, 0);
-  }
-
-  90% {
-    transform: translate3d(-5px, 0, 0);
-  }
-
-  to {
-    transform: translate3d(0, 0, 0);
-  }
-}
-
-.bounceInRight {
-  animation-name: bounceInRight;
-  animation-duration: 1s;
-  animation-fill-mode: both;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-.fadeIn {
-  animation-name: fadeIn;
-  animation-delay: 0.5s;
-  animation-duration: 1s;
-  animation-fill-mode: both;
-}
-
-@keyframes flash {
-  from,
-  40%,
-  80% {
-    opacity: 1;
-  }
-
-  20%,
-  60%,
-  to {
-    opacity: 0;
-  }
-}
-
-.flash {
-  animation-name: flash;
-  animation-duration: 2s;
-  animation-fill-mode: both;
 }

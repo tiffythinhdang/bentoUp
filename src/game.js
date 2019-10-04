@@ -216,6 +216,7 @@ class Game {
     this.timeElapsed = new Date();
     
     document.getElementById("modal").classList.add("hidden");
+    this.addListenerOnWindow();
     this.flashLevelUpMessage();
     
     this.generateGameRound()
