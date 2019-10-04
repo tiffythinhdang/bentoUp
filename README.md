@@ -1,10 +1,9 @@
-<a href="#">
+<p align="right">
   <img 
     src="https://github.com/tiffythinhdang/bentoUp/blob/master/assets/game_anatomy/title_logo.png"
-    alt="logo" 
-    align="right" height="40"
+    alt="logo" height="40"
   />
-</a>
+</p>
 
 bentoUp
 ======================
@@ -16,8 +15,19 @@ bentoUp
   <img height="100" src="https://github.com/tiffythinhdang/bentoUp/blob/master/assets/sushi_chef.png">
 </p>
 
-## Link
+## Live
 Play the game live [here](https://tiffythinhdang.github.io/bentoUp/dist/index.html)!
+
+## Table of content
+
+- [Game Anatomy](#game-anatomy)
+    - [Instruction](#instruction)
+    - [Layout](#layout)
+    - [Scoring and Ranking](#scoring-and-ranking)
+- [Functionalities and MVPs](#functionalities-and-mvps)
+- [Languages and Technologies](#languages-and-technologies)
+- [Future considerations](#future-considerations)
+
 
 ## Game Anatomy
 ### Instruction
@@ -25,15 +35,27 @@ Play the game live [here](https://tiffythinhdang.github.io/bentoUp/dist/index.ht
   <img height="150" src="https://github.com/tiffythinhdang/bentoUp/blob/master/assets/game_anatomy/instruction.png"/>
 </p>
 
-### Game Layout
+### Layout
 ![alt text](https://github.com/tiffythinhdang/bentoUp/blob/master/assets/game_anatomy/layout.png)
 
-### Scoring and ranking
+### Scoring and Ranking
 <p align="center">
-  <img height="300" src="https://github.com/tiffythinhdang/bentoUp/blob/master/assets/game_anatomy/final_message.png">
+  <img src="https://github.com/tiffythinhdang/bentoUp/blob/master/assets/game_anatomy/final_message.png">
 </p>
+
+## Functionalities and MVPs
+- [ ] Start and restart the game.
+- [ ] Use the keyboards or mouse to select items of each bento.
+- [ ] Collect points for serving correct bento boxes to customers.
+- [ ] Achieve higher rank once you reach a certain number of points.
+- [ ] Lose a customer for each missed order of bento box.
+- [ ] Lose the game once you lose 3 customers.
 
 ## Languages and Technologies
 - JavaScript
 - Vanilla JS
 - HTML5/ CSS3
+
+## Future considerations
+- More intricate animations and effects.
+- More varieties of themes and levels.
