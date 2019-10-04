@@ -1,7 +1,7 @@
-<a align="right">
+<a>
   <img 
     src="https://github.com/tiffythinhdang/bentoUp/blob/master/assets/game_anatomy/title_logo.png"
-    alt="logo" height="40"
+    alt="logo" height="40" align="right"
   />
 </a>
 
