@@ -30,7 +30,7 @@ Play the game live [here](https://tiffythinhdang.github.io/bentoUp/dist/index.ht
 ![alt text](https://github.com/tiffythinhdang/bentoUp/blob/master/assets/game_anatomy/layout.png)
 
 <p align="center">
-  <img height="200" src="https://github.com/tiffythinhdang/bentoUp/blob/master/assets/play_again.png">
+  <img height="300" src="https://github.com/tiffythinhdang/bentoUp/blob/master/assets/game_anatomy/play_again.png">
 </p>
 
 ## Languages and Technologies
