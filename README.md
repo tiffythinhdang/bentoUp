@@ -20,17 +20,17 @@ bentoUp
 Play the game live [here](https://tiffythinhdang.github.io/bentoUp/dist/index.html)!
 
 ## Game Anatomy
-<a>
-  <img 
-    src="https://github.com/tiffythinhdang/bentoUp/blob/master/assets/game_anatomy/instruction.png" 
-    height="150"
-  />
-</a>
+### Instruction
+<p align="center">
+  <img height="150" src="https://github.com/tiffythinhdang/bentoUp/blob/master/assets/game_anatomy/instruction.png"/>
+</p>
 
+### Game Layout
 ![alt text](https://github.com/tiffythinhdang/bentoUp/blob/master/assets/game_anatomy/layout.png)
 
+### Scoring and ranking
 <p align="center">
-  <img height="300" src="https://github.com/tiffythinhdang/bentoUp/blob/master/assets/game_anatomy/play_again.png">
+  <img height="300" src="https://github.com/tiffythinhdang/bentoUp/blob/master/assets/game_anatomy/final_message.png">
 </p>
 
 ## Languages and Technologies
