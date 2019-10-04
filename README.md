@@ -16,7 +16,7 @@ bentoUp
 </p>
 
 ## Live
-Play the game live [here]()!
+Play the game live [here](https://tiffythinhdang.github.io/bentoUp/dist/)!
 
 ## Table of content
 
