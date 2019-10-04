@@ -1,9 +1,9 @@
-<p align="right">
+<a align="right">
   <img 
     src="https://github.com/tiffythinhdang/bentoUp/blob/master/assets/game_anatomy/title_logo.png"
     alt="logo" height="40"
   />
-</p>
+</a>
 
 bentoUp
 ======================
