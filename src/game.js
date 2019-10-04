@@ -7,7 +7,7 @@ const KEY_MAPPING = {
   "a": "onigiri",
   "s": "sashimi",
   "d": "pickles",
-  "e": "tempura",
+  "f": "tempura",
   "j": "fish",
   "k": "tamago",
   "l": "meatballs",
