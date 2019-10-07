@@ -61,7 +61,12 @@ class Game {
   }
 
   increaseDifficulty(numItems) {
-    if ( this.checkTimeElapsed() > 120 ) {
+    if ( this.checkTimeElapsed() > 180 ) {
+      clearInterval(this.levelUpInterval);
+      return new Order(numItems, numItems === 4 ? 1 : 2);
+    } else if ( this.checkTimeElapsed() > 150 ) {
+      return new Order(numItems, numItems === 4 ? 2 : 3);
+    } else if ( this.checkTimeElapsed() > 120 ) {
       return new Order(numItems, numItems === 4 ? 3 : 5);
     } else if ( this.checkTimeElapsed() > 60 ) {
       return new Order(numItems, numItems === 4 ? 4 : 6);

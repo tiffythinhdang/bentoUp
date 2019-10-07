@@ -1,4 +1,13 @@
-import { MENU_ITEMS } from "./menu";
+const ORDER_ITEMS = {
+  "onigiri": "../assets/menu_items/onigiri_order.png",
+  "sashimi": "../assets/menu_items/sashimi_order.png",
+  "pickles": "../assets/menu_items/pickles_order.png",
+  "tempura": "../assets/menu_items/tempura_order.png",
+  "fish": "../assets/menu_items/fish_order.png",
+  "tamago": "../assets/menu_items/tamago_order.png",
+  "meatballs": "../assets/menu_items/meatballs_order.png",
+  "sushi-roll": "../assets/menu_items/sushi-roll_order.png"
+};
 
 export const CUSTOMERS = {
   1: "../assets/customers/customer_1.png",
@@ -21,7 +30,7 @@ export class Order {
   }
 
   generateOrder() {
-    let menuOptions = Object.keys(MENU_ITEMS);
+    let menuOptions = Object.keys(ORDER_ITEMS);
     let numOptions = menuOptions.length;
 
     for (let i = 1; i <= this.numItems; i ++) {
@@ -51,7 +60,7 @@ export class Order {
 
   generateOrderItem(id) {
     let img = document.createElement("img");
-    img.src = MENU_ITEMS[id];
+    img.src = ORDER_ITEMS[id];
     img.alt = `${id}-icon`;
     return img;
   }
