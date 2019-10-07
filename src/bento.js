@@ -1,4 +1,4 @@
-import { MENU_ITEMS } from "./menu";
+import { ORDER_ITEMS } from "./order";
 
 class Bento {
   constructor(numItems, order) {
@@ -51,7 +51,7 @@ class Bento {
       let item = this.bento[i - 1];
       if (!item) break;
       let img = document.createElement("img");
-      img.src = MENU_ITEMS[item];
+      img.src = ORDER_ITEMS[item];
       img.alt = `${item}-icon`;
       bentoItem.appendChild(img);
     }

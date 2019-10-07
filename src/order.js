@@ -1,4 +1,4 @@
-const ORDER_ITEMS = {
+export const ORDER_ITEMS = {
   "onigiri": "../assets/menu_items/onigiri_order.png",
   "sashimi": "../assets/menu_items/sashimi_order.png",
   "pickles": "../assets/menu_items/pickles_order.png",
