@@ -20,14 +20,17 @@ Play the game live [here](https://tiffythinhdang.github.io/bentoUp/dist/)!
 
 ## Table of content
 
+- [Languages and Technologies](#languages-and-technologies)
 - [Game Anatomy](#game-anatomy)
     - [Instruction](#instruction)
     - [Layout](#layout)
     - [Scoring and Ranking](#scoring-and-ranking)
 - [Functionalities and MVPs](#functionalities-and-mvps)
-- [Languages and Technologies](#languages-and-technologies)
 - [Future considerations](#future-considerations)
 
+## Languages and Technologies
+- Vanilla JavaScript
+- HTML5/ CSS3
 
 ## Game Anatomy
 ### Instruction
@@ -50,11 +53,6 @@ Play the game live [here](https://tiffythinhdang.github.io/bentoUp/dist/)!
 - [ ] Achieve higher rank once you reach a certain number of points.
 - [ ] Lose a customer for each missed order of bento box.
 - [ ] Lose the game once you lose 3 customers.
-
-## Languages and Technologies
-- JavaScript
-- Vanilla JS
-- HTML5/ CSS3
 
 ## Future considerations
 - More intricate animations and effects.
