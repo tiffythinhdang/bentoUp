@@ -841,6 +841,11 @@ footer {
     border-radius: 8px;
     border: 10px solid #4BAEA0;
   }
+
+  #game-canvas-competitive {
+    height: 650px;
+    width: 1100px;
+  }
   
   #top-bar {
     width: 100%;

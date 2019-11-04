@@ -24,6 +24,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   competitveModeButton.addEventListener("click", () => { 
     document.getElementById("game-mode").classList.add("hidden");
+    document.getElementById("game-canvas").classList.add("hidden");
+    document.getElementById("game-canvas-competitive").classList.remove("hidden");
     game.start();
   })
 

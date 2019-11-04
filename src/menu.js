@@ -37,12 +37,12 @@ export const COMPETIVE_MENU_ITEMS = {
 };
 
 export class MenuItem {
-  constructor(id, imagePath){
+  constructor(id, imagePath) {
     this.id = id;
     this.imagePath = imagePath;
   }
 
-  render(){
+  render() {
     let img = document.createElement("img");
     img.src = this.imagePath;
     img.alt = `${this.id}-icon`;
@@ -57,14 +57,21 @@ export class Menu {
     this.generateMenu();
   }
 
-  generateMenu() {
-    let menuItems = Array.from( document.getElementsByClassName("menu-item") );
+  generateMenu(mode="easy") {
+    let chosenMenu;
+    if (mode === "easy") {
+      chosenMenu = MENU_ITEMS;
+    } else {
+      chosenMenu = COMPETIVE_MENU_ITEMS;
+    }
+    
+    let menuItems = Array.from(document.getElementsByClassName("menu-item"));
     menuItems.forEach(item => {
       let itemId = item.id;
-      let menuItem = new MenuItem(itemId, MENU_ITEMS[itemId]);
+      let menuItem = new MenuItem(itemId, chosenMenu[itemId]);
       this.menu.push(menuItem);
       item.appendChild(menuItem.render());
-    }); 
+    });
   }
 
   deleteMenu() {
