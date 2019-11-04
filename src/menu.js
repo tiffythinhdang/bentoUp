@@ -9,6 +9,33 @@ export const MENU_ITEMS = {
   "sushi-roll": "../assets/menu_items/sushi-roll.png"
 };
 
+export const COMPETIVE_MENU_ITEMS = {
+  "ramen": "../assets/menu_items/ramen.png",
+  "dango": "../assets/menu_items/dango.png",
+  "dumpling": "../assets/menu_items/dumpling.png",
+  "mini-rolls": "../assets/menu_items/mini-rolls.png",
+  "sticky-rice": "../assets/menu_items/sticky-rice.png",
+  "chowfun": "../assets/menu_items/chowfun.png",
+  "bao": "../assets/menu_items/bao.png",
+  "crab": "../assets/menu_items/crab.png",
+  "onigiri": "../assets/menu_items/onigiri.png",
+  "sashimi": "../assets/menu_items/sashimi.png",
+  "pickles": "../assets/menu_items/pickles.png",
+  "tempura": "../assets/menu_items/tempura.png",
+  "fish": "../assets/menu_items/fish.png",
+  "tamago": "../assets/menu_items/tamago.png",
+  "meatballs": "../assets/menu_items/meatballs.png",
+  "sushi-roll": "../assets/menu_items/sushi-roll.png",
+  "watermelon": "../assets/menu_items/watermelon.png",
+  "naruto": "../assets/menu_items/naruto.png",
+  "lemon": "../assets/menu_items/lemon.png",
+  "veggies-stir-fry": "../assets/menu_items/veggies-stir-fry.png",
+  "corn-dog": "../assets/menu_items/corn-dog.png",
+  "mochi": "../assets/menu_items/mochi.png",
+  "sausage": "../assets/menu_items/sausage.png",
+  "brocolli": "../assets/menu_items/brocolli.png"
+};
+
 export class MenuItem {
   constructor(id, imagePath){
     this.id = id;

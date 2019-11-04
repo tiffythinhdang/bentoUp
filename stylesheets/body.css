@@ -48,12 +48,12 @@ input[type="submit"] {
   cursor: pointer;
 }
 
-/* modal and introdcution*/
+/* modal, game-mode, and introdcution*/
 .hidden {
   display: none;
 }
 
-.modal-screen, #introduction {
+.modal-screen, #introduction, #game-mode {
   z-index: 998;
   position: fixed;
   top: 0%;
@@ -63,7 +63,7 @@ input[type="submit"] {
   background: rgba(0, 0, 0, .3);
 }
 
-#introduction-content {
+#introduction-content, #game-mode-content {
   z-index: 999;
   position: fixed;
   width: 60vw;
@@ -143,6 +143,47 @@ input[type="submit"] {
 }
 
 #start-button:hover {
+  background: #3A8E82;
+}
+
+/* Game-mode */
+#game-mode-content {
+  position: fixed;
+  width: 60vw;
+  top: 20vh;
+  left: 20vw;
+}
+
+#game-mode-message {
+  font-family: 'Mansalva', cursive;
+  color: #F58248;
+  font-size: 36px;
+  margin-bottom: 25px;
+}
+
+.game-mode.buttons-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#competitive-mode-button, #easy-mode-button {
+  width: 200px;
+  height: 54px;
+  font-size: 25px;
+  background-color: #4BAEA0;
+  color: white;
+  border-radius: 4px;
+  margin: 10px 0px;
+  position: relative;
+  text-align: center;
+}
+
+#competitive-mode-button {
+  margin-right: 50px;
+}
+
+#competitive-mode-button:hover, #easy-mode-button:hover {
   background: #3A8E82;
 }
 
@@ -383,6 +424,7 @@ footer {
   z-index: 10;
 }
 
+/* Menu */
 #menu {
   width: 363px;
   height: 161px; 
@@ -434,6 +476,7 @@ footer {
   background: #D16730;
 }
 
+/* Bento */
 #bento-container {
   width: 233px;
   height: 160px;

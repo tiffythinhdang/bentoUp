@@ -11,6 +11,7 @@
 </head>
 
 <body>
+  <!-- Introduction Modal -->
   <div id="introduction">
     <div id="introduction-content">
       <h1 class="small game-title">bentoUp</h1>
@@ -40,6 +41,19 @@
     </div>
   </div>
 
+  <!-- Choose Game Mode Modal -->
+  <div id="game-mode" class="hidden">
+    <div id="game-mode-content">
+      <div id="game-mode-message">What mode do you want to play?</div>
+
+      <div class ="game-mode buttons-container">
+        <button id="competitive-mode-button">Competitive</button>
+        <button id="easy-mode-button">Easy</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Play Again Modal -->
   <div id="modal" class="hidden">
     <div class="modal-screen"></div>
     <div class="modal-content">
@@ -89,8 +103,11 @@
 
   <h1 class="game-title">bentoUp</h1>
 
+  <!-- Game Canvas -->
   <main class="main-content">
     <div id="game-canvas">
+
+      <!-- Top bar: time, score, missed orders -->
       <div id="top-bar">
         <div id="timer-container"></div>
         <div id="score">0 order</div>
@@ -108,12 +125,14 @@
         </div>
       </div>
 
+      <!-- Counter Area: menu, bento, remove button -->
       <div id="counter">
         <div id="bento-container">
         </div>
 
         <button id="remove-item-button">Remove</button>
 
+        <!-- Easy Menu -->
         <div id="menu">
           <div class="menu-first-row">
             <div id="onigiri" class="menu-item"></div>
@@ -126,6 +145,42 @@
             <div id="tamago" class="menu-item"></div>
             <div id="meatballs" class="menu-item"></div>
             <div id="sushi-roll" class="menu-item"></div>
+          </div>
+        </div>
+
+        <!-- Competitive Menu -->
+        <div id="competitive-menu" class="hidden">
+          <div class="competitive-menu-first-row">
+            <div id="ramen" class="menu-item"></div>
+            <div id="dango" class="menu-item"></div>
+            <div id="dumpling" class="menu-item"></div>
+            <div id="mini-rolls" class="menu-item"></div>
+            <div id="sticky-rice" class="menu-item"></div>
+            <div id="chowfun" class="menu-item"></div>
+            <div id="bao" class="menu-item"></div>
+            <div id="crab" class="menu-item"></div>
+          </div>
+
+          <div class="competitive-menu-second-row">
+            <div id="onigiri" class="menu-item"></div>
+            <div id="sashimi" class="menu-item"></div>
+            <div id="pickles" class="menu-item"></div>
+            <div id="tempura" class="menu-item"></div>
+            <div id="fish" class="menu-item"></div>
+            <div id="tamago" class="menu-item"></div>
+            <div id="meatballs" class="menu-item"></div>
+            <div id="sushi-roll" class="menu-item"></div>
+          </div>
+
+          <div class="competitive-menu-third-row">
+            <div id="watermelon" class="menu-item"></div>
+            <div id="naruto" class="menu-item"></div>
+            <div id="lemon" class="menu-item"></div>
+            <div id="veggies-stir-fry" class="menu-item"></div>
+            <div id="corn-dog" class="menu-item"></div>
+            <div id="mochi" class="menu-item"></div>
+            <div id="sausage" class="menu-item"></div>
+            <div id="brocolli" class="menu-item"></div>
           </div>
         </div>
       </div>
