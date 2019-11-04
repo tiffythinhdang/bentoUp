@@ -57,20 +57,20 @@ class Game {
       message.classList.add("flash")
       message.innerHTML = "Speed Up!";
       container.appendChild(message);
-    }, 30000);
+    }, 45000);
   }
 
   increaseDifficulty(numItems) {
-    if ( this.checkTimeElapsed() > 180 ) {
+    if ( this.checkTimeElapsed() > 225 ) {
       clearInterval(this.levelUpInterval);
       return new Order(numItems, numItems === 4 ? 1 : 2);
-    } else if ( this.checkTimeElapsed() > 150 ) {
+    } else if ( this.checkTimeElapsed() > 180 ) {
       return new Order(numItems, numItems === 4 ? 2 : 3);
-    } else if ( this.checkTimeElapsed() > 120 ) {
+    } else if ( this.checkTimeElapsed() > 135 ) {
       return new Order(numItems, numItems === 4 ? 3 : 5);
-    } else if ( this.checkTimeElapsed() > 60 ) {
+    } else if ( this.checkTimeElapsed() > 90 ) {
       return new Order(numItems, numItems === 4 ? 4 : 6);
-    } else if ( this.checkTimeElapsed() >= 30 ) {
+    } else if ( this.checkTimeElapsed() >= 45 ) {
       return new Order(numItems, numItems === 4 ? 5 : 7);
     } else if ( this.checkTimeElapsed() >= 0 ) {
       return new Order(numItems, numItems === 4 ? 6 : 8);
