@@ -358,9 +358,7 @@ footer {
 }
 
 /* game */
-#game-canvas {
-  height: 600px;
-  width: 800px;
+#game-canvas, #game-canvas-competitive {
   border-radius: 10px;
   border: 15px solid #4BAEA0;
   background-image: url('../assets/background.png');
@@ -370,6 +368,16 @@ footer {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+}
+
+#game-canvas {
+  height: 600px;
+  width: 800px;
+}
+
+#game-canvas-competitive {
+  height: 650px;
+  width: 1100px;
 }
 
 #top-bar {
@@ -424,10 +432,30 @@ footer {
   z-index: 10;
 }
 
+#competitive-counter {
+  width: 100%;
+  height: 300px;
+  background: #4BAEA0;
+  box-shadow: 0px -5px 0px rgba(0, 0, 0, 0.25);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+}
+
 /* Menu */
 #menu {
   width: 363px;
   height: 161px; 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#competitive-menu {
+  width: 690px;
+  height: 250px; 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -439,6 +467,13 @@ footer {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+.competitive-menu-first-row, .competitive-menu-second-row, .competitive-menu-third-row {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between
 }
 
 .menu-item {
@@ -840,11 +875,6 @@ footer {
     width: calc(100vh * 4 /3);
     border-radius: 8px;
     border: 10px solid #4BAEA0;
-  }
-
-  #game-canvas-competitive {
-    height: 650px;
-    width: 1100px;
   }
   
   #top-bar {

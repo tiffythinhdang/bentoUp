@@ -14,7 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
   startButton.addEventListener("click", () => { 
     document.getElementById("introduction").classList.add("hidden");
     document.getElementById("game-mode").classList.remove("hidden");
-    // game.start();
   })
 
   easyModeButton.addEventListener("click", () => { 
@@ -24,9 +23,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   competitveModeButton.addEventListener("click", () => { 
     document.getElementById("game-mode").classList.add("hidden");
+    document.getElementById("easy-content").classList.add("hidden");
     document.getElementById("game-canvas").classList.add("hidden");
-    document.getElementById("game-canvas-competitive").classList.remove("hidden");
-    game.start();
+    document.getElementById("competitive-content").classList.remove("hidden");
+    game = new Game("competitive");
+    // game.start();
   })
 
   playAgainButton.addEventListener("click", () => {

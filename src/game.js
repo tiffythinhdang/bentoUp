@@ -15,8 +15,8 @@ const KEY_MAPPING = {
 }
 
 class Game {
-  constructor() {
-    this.menu = new Menu();
+  constructor(mode="easy") {
+    this.menu = new Menu(mode);
     
     let numItems = this.generateRandomNum();
     this.order = new Order(numItems, numItems === 4 ? 6 : 8 );

@@ -9,7 +9,7 @@ export const MENU_ITEMS = {
   "sushi-roll": "../assets/menu_items/sushi-roll.png"
 };
 
-export const COMPETIVE_MENU_ITEMS = {
+export const COMPETITIVE_MENU_ITEMS = {
   "ramen": "../assets/menu_items/ramen.png",
   "dango": "../assets/menu_items/dango.png",
   "dumpling": "../assets/menu_items/dumpling.png",
@@ -51,21 +51,22 @@ export class MenuItem {
 }
 
 export class Menu {
-  constructor() {
+  constructor(mode="easy") {
     this.menu = [];
 
-    this.generateMenu();
+    this.generateMenu(mode);
   }
 
-  generateMenu(mode="easy") {
+  generateMenu(mode) {
     let chosenMenu;
     if (mode === "easy") {
       chosenMenu = MENU_ITEMS;
     } else {
-      chosenMenu = COMPETIVE_MENU_ITEMS;
+      chosenMenu = COMPETITIVE_MENU_ITEMS;
     }
     
-    let menuItems = Array.from(document.getElementsByClassName("menu-item"));
+    let menuItems = Array.from(document.getElementsByClassName(`${mode} menu-item`));
+    // debugger
     menuItems.forEach(item => {
       let itemId = item.id;
       let menuItem = new MenuItem(itemId, chosenMenu[itemId]);
