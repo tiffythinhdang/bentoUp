@@ -66,7 +66,6 @@ export class Menu {
     }
     
     let menuItems = Array.from(document.getElementsByClassName(`${mode} menu-item`));
-    // debugger
     menuItems.forEach(item => {
       let itemId = item.id;
       let menuItem = new MenuItem(itemId, chosenMenu[itemId]);

@@ -1,10 +1,12 @@
-import { ORDER_ITEMS } from "./order";
+import { ORDER_ITEMS, COMPETITIVE_ORDER_ITEMS } from "./order";
 
 class Bento {
-  constructor(numItems, order) {
+  constructor(numItems, order, mode="easy") {
     this.numItems = numItems;
     this.order = order;
     this.bento = [];
+
+    this.bentoOptions = (mode === "easy" ? ORDER_ITEMS : COMPETITIVE_ORDER_ITEMS) 
 
     this.generateBento();
   }
@@ -51,7 +53,7 @@ class Bento {
       let item = this.bento[i - 1];
       if (!item) break;
       let img = document.createElement("img");
-      img.src = ORDER_ITEMS[item];
+      img.src = this.bentoOptions[item];
       img.alt = `${item}-icon`;
       bentoItem.appendChild(img);
     }

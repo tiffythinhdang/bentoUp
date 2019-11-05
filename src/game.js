@@ -17,10 +17,12 @@ const KEY_MAPPING = {
 class Game {
   constructor(mode="easy") {
     this.menu = new Menu(mode);
+
+    this.mode = mode;
     
     let numItems = this.generateRandomNum();
-    this.order = new Order(numItems, numItems === 4 ? 6 : 8 );
-    this.bento = new Bento(numItems, this.order);
+    this.order = new Order(numItems, numItems === 4 ? 6 : 8, mode);
+    this.bento = new Bento(numItems, this.order, mode);
     this.timer = new Timer(this.order.numSeconds, this.checkState.bind(this));
 
     this.score = 0;
@@ -60,20 +62,20 @@ class Game {
     }, 45000);
   }
 
-  increaseDifficulty(numItems) {
+  increaseDifficulty(numItems, mode) {
     if ( this.checkTimeElapsed() > 225 ) {
       clearInterval(this.levelUpInterval);
-      return new Order(numItems, numItems === 4 ? 1 : 2);
+      return new Order(numItems, numItems === 4 ? 1 : 2, mode);
     } else if ( this.checkTimeElapsed() > 180 ) {
-      return new Order(numItems, numItems === 4 ? 2 : 3);
+      return new Order(numItems, numItems === 4 ? 2 : 3, mode);
     } else if ( this.checkTimeElapsed() > 135 ) {
-      return new Order(numItems, numItems === 4 ? 3 : 5);
+      return new Order(numItems, numItems === 4 ? 3 : 5, mode);
     } else if ( this.checkTimeElapsed() > 90 ) {
-      return new Order(numItems, numItems === 4 ? 4 : 6);
+      return new Order(numItems, numItems === 4 ? 4 : 6, mode);
     } else if ( this.checkTimeElapsed() >= 45 ) {
-      return new Order(numItems, numItems === 4 ? 5 : 7);
+      return new Order(numItems, numItems === 4 ? 5 : 7, mode);
     } else if ( this.checkTimeElapsed() >= 0 ) {
-      return new Order(numItems, numItems === 4 ? 6 : 8);
+      return new Order(numItems, numItems === 4 ? 6 : 8, mode);
     }
   }
 
@@ -193,8 +195,8 @@ class Game {
 
   generateGameRound() {
     let numItems = this.generateRandomNum();
-    this.order = this.increaseDifficulty(numItems);
-    this.bento = new Bento(numItems, this.order);
+    this.order = this.increaseDifficulty(numItems, this.mode);
+    this.bento = new Bento(numItems, this.order, this.mode);
     this.timer = new Timer(this.order.numSeconds, this.checkState.bind(this));
     this.startTimer();
   }

@@ -9,6 +9,33 @@ export const ORDER_ITEMS = {
   "sushi-roll": "../assets/menu_items/sushi-roll_order.png"
 };
 
+export const COMPETITIVE_ORDER_ITEMS = {
+  "ramen": "../assets/menu_items/_order.png",
+  "dango": "../assets/menu_items/dango_order.png",
+  "dumpling": "../assets/menu_items/dumpling_order.png",
+  "mini-rolls": "../assets/menu_items/mini-rolls_order.png",
+  "sticky-rice": "../assets/menu_items/sticky-rice_order.png",
+  "chowfun": "../assets/menu_items/chowfun_order.png",
+  "bao": "../assets/menu_items/bao_order.png",
+  "crab": "../assets/menu_items/crab_order.png",
+  "onigiri": "../assets/menu_items/onigiri_order.png",
+  "sashimi": "../assets/menu_items/sashimi_order.png",
+  "pickles": "../assets/menu_items/pickles_order.png",
+  "tempura": "../assets/menu_items/tempura_order.png",
+  "fish": "../assets/menu_items/fish_order.png",
+  "tamago": "../assets/menu_items/tamago_order.png",
+  "meatballs": "../assets/menu_items/meatballs_order.png",
+  "sushi-roll": "../assets/menu_items/sushi-roll_order.png",
+  "watermelon": "../assets/menu_items/watermelon_order.png",
+  "naruto": "../assets/menu_items/naruto_order.png",
+  "lemon": "../assets/menu_items/lemon_order.png",
+  "veggies-stir-fry": "../assets/menu_items/veggies-stir-fry_order.png",
+  "corn-dog": "../assets/menu_items/corn-dog_order.png",
+  "mochi": "../assets/menu_items/mochi_order.png",
+  "sausage": "../assets/menu_items/sausage_order.png",
+  "brocolli": "../assets/menu_items/brocolli_order.png"
+};
+
 export const CUSTOMERS = {
   1: "../assets/customers/customer_1.png",
   2: "../assets/customers/customer_2.png",
@@ -18,10 +45,12 @@ export const CUSTOMERS = {
 };
 
 export class Order {
-  constructor(numItems, numSeconds){
+  constructor(numItems, numSeconds, mode){
     this.numItems = numItems;
     this.order = [];
     this.numSeconds= numSeconds;
+
+    this.orderOptions = (mode === "easy" ? ORDER_ITEMS : COMPETITIVE_ORDER_ITEMS);
 
     this.generateCustomer();
     this.generateSpeechBubble();
@@ -30,7 +59,7 @@ export class Order {
   }
 
   generateOrder() {
-    let menuOptions = Object.keys(ORDER_ITEMS);
+    let menuOptions = Object.keys(this.orderOptions);
     let numOptions = menuOptions.length;
 
     for (let i = 1; i <= this.numItems; i ++) {
@@ -60,7 +89,7 @@ export class Order {
 
   generateOrderItem(id) {
     let img = document.createElement("img");
-    img.src = ORDER_ITEMS[id];
+    img.src = this.orderOptions[id];
     img.alt = `${id}-icon`;
     return img;
   }
