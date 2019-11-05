@@ -25,6 +25,7 @@ class Bento {
 
     for (let i = 1; i <= this.numItems; i++ ) {
       let bentoItem = document.createElement("div");
+      bentoItem.classList.add(this.mode);
       bentoItem.classList.add("bento-item");
       bentoItem.classList.add(`${i}`);
       bento.appendChild(bentoItem);
@@ -49,13 +50,14 @@ class Bento {
 
   render() {
     for (let i = 1; i <= this.numItems; i++) {
-      let bentoItem = document.getElementsByClassName(`bento-item ${i}`)[0];
+      let bentoItem = document.getElementsByClassName(`${this.mode} bento-item ${i}`)[0];
       bentoItem.innerHTML = "";
       let item = this.bento[i - 1];
       if (!item) break;
       let img = document.createElement("img");
       img.src = this.bentoOptions[item];
       img.alt = `${item}-icon`;
+      debugger
       bentoItem.appendChild(img);
     }
   }

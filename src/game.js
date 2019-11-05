@@ -131,7 +131,7 @@ class Game {
   }
 
   addClickToMenuItems() {
-    let menuItems = Array.from( document.getElementsByClassName("menu-item") );
+    let menuItems = Array.from( document.getElementsByClassName(`${this.mode} menu-item`) );
     menuItems.forEach(item => {
       item.addEventListener("click", () => {
         this.bento.addItem(item.id);
@@ -149,7 +149,7 @@ class Game {
   }
 
   startTimer() {
-    let timerContainer = document.getElementById("timer-container");
+    let timerContainer = document.getElementById(`${this.mode}-timer-container`);
     let timer = document.createElement("div");
     timer.id = "timer";
     timer.innerHTML = this.timer.count;
@@ -218,7 +218,7 @@ class Game {
   }
 
   renderCustomerLost() {
-    let customerLost = document.getElementById("customer-lost");
+    let customerLost = document.getElementById(`${this.mode}-customer-lost`);
     customerLost.innerHTML = "";
     for (let i = 1; i <= this.customerLost; i++) {
       let cross = document.createElement("img");
@@ -228,9 +228,9 @@ class Game {
   }
 
   restart() {
-    document.getElementById("timer-container").innerHTML = "";
+    document.getElementById(`${this.mode}-timer-container`).innerHTML = "";
     document.getElementById("score").innerHTML = "";
-    document.getElementById("customer-lost").innerHTML = "";
+    document.getElementById(`${this.mode}-customer-lost`).innerHTML = "";
     this.order.deleteOrder();
     this.bento.deleteBento();
     this.score = 0;

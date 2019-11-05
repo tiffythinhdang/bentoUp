@@ -388,7 +388,7 @@ footer {
   align-items: center;
 }
 
-#timer-container {
+#easy-timer-container, #competitive-timer-container {
   height: 100%;
   width: 150px;
   font-size: 40px;
@@ -408,7 +408,7 @@ footer {
   font-size: 40px;
 }
 
-#customer-lost {
+#easy-customer-lost, #competitive-customer-lost{
   height: 100%;
   width: 150px;
   display: flex;
@@ -416,7 +416,7 @@ footer {
   align-items: center;
 }
 
-#customer-lost > img {
+#easy-customer-lost > img, #competitive-customer-lost > img {
   width: 30%;
   height: auto;
 }
@@ -882,7 +882,7 @@ footer {
     height: 12%;
   }
 
-  #timer-container {
+  #easy-timer-container, #competitive-timer-container {
     width: 20%;
     font-size: 24px;
   }
@@ -892,12 +892,12 @@ footer {
     font-size: 32px;
   }
 
-  #customer-lost {
+  #competitive-customer-lost, #easy-customer-lost {
     height: 100%;
     width: 20%;
   }
 
-  #customer-lost > img {
+  #competitive-customer-lost > img, #easy-customer-lost > img {
     width: 30%;
     height: auto;
   }

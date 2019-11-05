@@ -76,7 +76,6 @@ export class Order {
     img.src = CUSTOMERS[idx];
     img.alt = "customer-icon";
     img.classList.add("bounceInRight");
-    debugger
     let customerContainer = document.getElementById(`${this.mode}-customer-container`);
     customerContainer.appendChild(img);
   }
