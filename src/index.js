@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("game-canvas").classList.add("hidden");
     document.getElementById("competitive-content").classList.remove("hidden");
     game = new Game("competitive");
-    // game.start();
+    game.start();
   })
 
   playAgainButton.addEventListener("click", () => {

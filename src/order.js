@@ -10,7 +10,7 @@ export const ORDER_ITEMS = {
 };
 
 export const COMPETITIVE_ORDER_ITEMS = {
-  "ramen": "../assets/menu_items/_order.png",
+  "ramen": "../assets/menu_items/ramen_order.png",
   "dango": "../assets/menu_items/dango_order.png",
   "dumpling": "../assets/menu_items/dumpling_order.png",
   "mini-rolls": "../assets/menu_items/mini-rolls_order.png",
@@ -49,6 +49,7 @@ export class Order {
     this.numItems = numItems;
     this.order = [];
     this.numSeconds= numSeconds;
+    this.mode = mode;
 
     this.orderOptions = (mode === "easy" ? ORDER_ITEMS : COMPETITIVE_ORDER_ITEMS);
 
@@ -75,12 +76,13 @@ export class Order {
     img.src = CUSTOMERS[idx];
     img.alt = "customer-icon";
     img.classList.add("bounceInRight");
-    let customerContainer = document.getElementById("customer-container");
+    debugger
+    let customerContainer = document.getElementById(`${this.mode}-customer-container`);
     customerContainer.appendChild(img);
   }
 
   generateSpeechBubble() {
-    let speechContainer = document.getElementById("speech-container");
+    let speechContainer = document.getElementById(`${this.mode}-speech-container`);
     let speechBubble = document.createElement("div");
     speechBubble.classList.add("speech-bubble");
     speechBubble.classList.add("fadeIn");
@@ -106,12 +108,12 @@ export class Order {
       orderItem.appendChild(this.generateOrderItem(item));
       orderContainer.appendChild(orderItem);
     });
-    let speechContainer = document.getElementById("speech-container");
+    let speechContainer = document.getElementById(`${this.mode}-speech-container`);
     speechContainer.appendChild(orderContainer);
   }
 
   deleteOrder() {
-    document.getElementById("speech-container").innerHTML = "";
-    document.getElementById("customer-container").innerHTML = "";
+    document.getElementById(`${this.mode}-speech-container`).innerHTML = "";
+    document.getElementById(`${this.mode}-customer-container`).innerHTML = "";
   }
 }

@@ -5,6 +5,7 @@ class Bento {
     this.numItems = numItems;
     this.order = order;
     this.bento = [];
+    this.mode = mode;
 
     this.bentoOptions = (mode === "easy" ? ORDER_ITEMS : COMPETITIVE_ORDER_ITEMS) 
 
@@ -12,7 +13,7 @@ class Bento {
   }
 
   generateBento() {
-    let bentoContainer = document.getElementById("bento-container");
+    let bentoContainer = document.getElementById(`${this.mode}-bento-container`);
     let bento = document.createElement("div");
     bento.id = "bento";
 
@@ -33,7 +34,7 @@ class Bento {
   }
 
   deleteBento() {
-    document.getElementById("bento-container").innerHTML = "";
+    document.getElementById(`${this.mode}-bento-container`).innerHTML = "";
   }
 
   addItem(item) {

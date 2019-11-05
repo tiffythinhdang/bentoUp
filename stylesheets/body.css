@@ -512,7 +512,7 @@ footer {
 }
 
 /* Bento */
-#bento-container {
+#easy-bento-container, #competitive-bento-container {
   width: 233px;
   height: 160px;
 }
@@ -573,12 +573,12 @@ footer {
   align-items: flex-start;
 }
 
-#speech-container {
+#competitive-speech-container, #easy-speech-container {
   width: 275px;
   height: 175px;
 }
 
-#customer-container {
+#competitive-customer-container, #easy-customer-container {
   width: 280px;
   height: 250px;
   display: flex;
@@ -586,12 +586,12 @@ footer {
   align-items: flex-end;
 }
 
-#customer-container > img {
+#competitive-customer-container > img, #easy-customer-container > img{
   height: 100%;
   width: auto;
 }
 
-#speech-container {
+#competitive-speech-container, #easy-speech-container {
   display: flex;
   justify-content: center;
   align-items: center;
