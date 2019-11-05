@@ -496,7 +496,7 @@ footer {
   width: 100%;
 }
 
-#remove-item-button {
+#competitive-remove-item-button, #easy-remove-item-button {
   padding: 0 10px;
   height: 54px;
   border-radius: 4px;
@@ -507,7 +507,7 @@ footer {
   position: relative;
 }
 
-#remove-item-button:hover {
+#competitive-remove-item-button:hover, #easy-remove-item-button:hover {
   background: #D16730;
 }
 
@@ -930,7 +930,7 @@ footer {
     align-items: center
   }
 
-  #remove-item-button {
+  #competitive-remove-item-button, #easy-remove-item-button {
     padding: 0 10px;
     height: 45px;
     border-radius: 4px;

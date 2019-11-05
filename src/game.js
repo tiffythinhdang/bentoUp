@@ -141,7 +141,7 @@ class Game {
   }
 
   addClickToRemoveButton() {
-    let removeBtn = document.getElementById("remove-item-button");
+    let removeBtn = document.getElementById(`${this.mode}-remove-item-button`);
     removeBtn.addEventListener("click", () => {
       this.bento.removeItem();
       this.checkState();
