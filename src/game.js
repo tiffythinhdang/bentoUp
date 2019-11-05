@@ -158,7 +158,7 @@ class Game {
   }
 
   renderScore(){
-    let score = document.getElementById("score")
+    let score = document.getElementById(`${this.mode}-score`)
     score.innerHTML = (this.score > 1 ? `${this.score} orders` : `${this.score} order`);
   }
 
@@ -229,7 +229,7 @@ class Game {
 
   restart() {
     document.getElementById(`${this.mode}-timer-container`).innerHTML = "";
-    document.getElementById("score").innerHTML = "";
+    document.getElementById(`${this.mode}-score`).innerHTML = "";
     document.getElementById(`${this.mode}-customer-lost`).innerHTML = "";
     this.order.deleteOrder();
     this.bento.deleteBento();
