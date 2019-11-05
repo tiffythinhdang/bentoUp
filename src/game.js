@@ -4,6 +4,14 @@ import { Order } from './order';
 import Timer from './timer';
 
 const KEY_MAPPING = {
+  "q": "ramen",
+  "w": "dango",
+  "e": "dumpling",
+  "r": "mini-rolls",
+  "u": "sticky-rice",
+  "i": "chowfun",
+  "o": "bao",
+  "p": "crab",
   "a": "onigiri",
   "s": "sashimi",
   "d": "pickles",
@@ -11,7 +19,15 @@ const KEY_MAPPING = {
   "j": "fish",
   "k": "tamago",
   "l": "meatballs",
-  ";": "sushi-roll"
+  ";": "sushi-roll",
+  "z": "watermelon",
+  "x": "naruto",
+  "c": "lemon",
+  "v": "veggies-stir-fry",
+  "b": "corn-dog",
+  "n": "mochi",
+  "m": "sausage",
+  ",": "brocolli"
 }
 
 class Game {
