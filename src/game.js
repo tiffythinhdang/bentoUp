@@ -54,6 +54,8 @@ class Game {
     this.checkTimeElapsed = this.checkTimeElapsed.bind(this);
     this.flashLevelUpMessage = this.flashLevelUpMessage.bind(this);
     this.tapItem = this.tapItem.bind(this);
+    this.clickMenuItems = this.clickMenuItems.bind(this);
+    this.clickRemoveButton = this.clickRemoveButton.bind(this);
     this.start = this.start.bind(this);
 
     this.renderScore();
@@ -130,22 +132,47 @@ class Game {
     window.removeEventListener("keyup",this.untapItem);
   }
 
+  clickMenuItems(e) {
+    this.bento.addItem(e.currentTarget.id);
+    this.checkState();
+  }
+
+  clickRemoveButton() {
+    this.bento.removeItem();
+    this.checkState();
+  }
+
   addClickToMenuItems() {
     let menuItems = Array.from( document.getElementsByClassName(`${this.mode} menu-item`) );
     menuItems.forEach(item => {
-      item.addEventListener("click", () => {
-        this.bento.addItem(item.id);
-        this.checkState();
-      })
+      // item.addEventListener("click", 
+      //   () => {
+      //   this.bento.addItem(item.id);
+      //   this.checkState();
+      // })
+      item.addEventListener("click", this.clickMenuItems)
+    })
+  }
+
+  removeClickToMenuItems() {
+    let menuItems = Array.from( document.getElementsByClassName(`${this.mode} menu-item`) );
+    menuItems.forEach(item => {
+      item.removeEventListener("click", this.clickMenuItems)
     })
   }
 
   addClickToRemoveButton() {
     let removeBtn = document.getElementById(`${this.mode}-remove-item-button`);
-    removeBtn.addEventListener("click", () => {
-      this.bento.removeItem();
-      this.checkState();
-    })
+    // removeBtn.addEventListener("click", () => {
+    //   this.bento.removeItem();
+    //   this.checkState();
+    // })
+    removeBtn.addEventListener("click", this.clickRemoveButton)
+  }
+
+  removeClickToRemoveButton() {
+    let removeBtn = document.getElementById(`${this.mode}-remove-item-button`);
+    removeBtn.removeEventListener("click", this.clickRemoveButton)
   }
 
   startTimer() {
@@ -166,6 +193,7 @@ class Game {
     return JSON.stringify(this.order.order) === JSON.stringify(this.bento.bento);
   }
 
+  
   checkState() {
     if (this.lost()) {
       this.renderEndMessage();
@@ -227,34 +255,42 @@ class Game {
     }
   }
 
-  // restart() {
+  restart(mode) {
+    document.getElementById(`${this.mode}-timer-container`).innerHTML = "";
+    document.getElementById(`${this.mode}-score`).innerHTML = "";
+    document.getElementById(`${this.mode}-customer-lost`).innerHTML = "";
+    this.order.deleteOrder();
+    this.bento.deleteBento();
+    this.menu.deleteMenu();
+    this.mode = mode;
+    this.menu = new Menu(mode);
+    // debugger
+    this.addClickToMenuItems();
+    this.addClickToRemoveButton();
+    this.score = 0;
+    this.renderScore();
+    this.customerLost = 0;
+    this.timeElapsed = new Date();
+    
+    document.getElementById("modal").classList.add("hidden");
+    this.addListenerOnWindow();
+    this.flashLevelUpMessage();
+    
+    this.generateGameRound()
+  }
+
+  // clear() {
   //   document.getElementById(`${this.mode}-timer-container`).innerHTML = "";
   //   document.getElementById(`${this.mode}-score`).innerHTML = "";
   //   document.getElementById(`${this.mode}-customer-lost`).innerHTML = "";
+  //   this.timer.stop();
   //   this.order.deleteOrder();
   //   this.bento.deleteBento();
   //   this.menu.deleteMenu();
   //   this.score = 0;
   //   this.renderScore();
   //   this.customerLost = 0;
-  //   this.timeElapsed = new Date();
-    
-    // document.getElementById("modal").classList.add("hidden");
-    // this.addListenerOnWindow();
-    // this.flashLevelUpMessage();
-    
-    // this.generateGameRound()
   // }
-
-  clear() {
-    document.getElementById(`${this.mode}-timer-container`).innerHTML = "";
-    document.getElementById(`${this.mode}-score`).innerHTML = "";
-    document.getElementById(`${this.mode}-customer-lost`).innerHTML = "";
-    document.getElementById(`${this.mode}-menu`).innerHTML = "";
-    this.order.deleteOrder();
-    this.bento.deleteBento();
-    this.menu.deleteMenu();
-  }
 
   lost() {
     return this.customerLost >= 3;
@@ -265,6 +301,8 @@ class Game {
     const score = this.score;
     
     this.removeListenerOnWindow();
+    this.removeClickToMenuItems();
+    this.removeClickToRemoveButton();
     let message = document.getElementsByClassName("modal-message")[0];
     let ranking = document.getElementById("ranking");
     let finalScore = (score > 1 ? `${score} orders` : `${score} order`);

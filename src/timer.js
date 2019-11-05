@@ -22,6 +22,7 @@ class Timer {
   tick() {
     this.count -= 1;
     if (this.count <= 0) {
+      // console.log(this.count);
       this.count = 0;
       clearInterval(this.interval);
       this.timerEndCallback();

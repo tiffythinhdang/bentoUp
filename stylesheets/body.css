@@ -68,7 +68,7 @@ input[type="submit"] {
   position: fixed;
   width: 60vw;
   /* height: 80vh; */
-  top: 5vh;
+  top: 12.5vh;
   left: 20vw;
   padding: 50px;
   background: white;
@@ -150,7 +150,7 @@ input[type="submit"] {
 #game-mode-content {
   position: fixed;
   width: 60vw;
-  top: 20vh;
+  top: 30vh;
   left: 20vw;
 }
 

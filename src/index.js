@@ -1,6 +1,6 @@
 console.log("Webpack is working!")
 
-import Game  from './game';
+import Game from './game';
 
 document.addEventListener("DOMContentLoaded", () => {
   let game;
@@ -25,8 +25,12 @@ document.addEventListener("DOMContentLoaded", () => {
     if ( easyMode.classList.contains("hidden") ) easyMode.classList.remove("hidden");
     if (!competitiveMode.classList.contains("hidden")) competitiveMode.classList.add("hidden");
 
-    game = new Game("easy");
-    game.start();
+    if (!game) {
+      game = new Game("easy");
+      game.start();
+    } else {
+      game.restart("easy")
+    }
   })
 
   competitveModeButton.addEventListener("click", () => { 
@@ -34,16 +38,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!easyMode.classList.contains("hidden")) easyMode.classList.add("hidden");
     if (competitiveMode.classList.contains("hidden")) competitiveMode.classList.remove("hidden");
-    // document.getElementById("easy-content").classList.add("hidden");
-    // document.getElementById("competitive-content").classList.remove("hidden");
-    game = new Game("competitive");
-    game.start();
+
+    if (!game) {
+      game = new Game("competitive");
+      game.start();
+    } else {
+      game.restart("competitive")
+    }
   })
 
   playAgainButton.addEventListener("click", () => {
     document.getElementById("modal").classList.add("hidden");
     document.getElementById("game-mode").classList.remove("hidden");
-    game.clear();
-    // game.restart("competitive");
+    if (!easyMode.classList.contains("hidden")) easyMode.classList.add("hidden");
+    if (!competitiveMode.classList.contains("hidden")) competitiveMode.classList.add("hidden");
+    // game.clear();
   })
 });
