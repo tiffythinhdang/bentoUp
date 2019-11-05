@@ -444,7 +444,7 @@ footer {
 }
 
 /* Menu */
-#menu {
+#easy-menu {
   width: 363px;
   height: 161px; 
   display: flex;
@@ -462,7 +462,7 @@ footer {
   align-items: center;
 }
 
-#menu > .menu-first-row, #menu > .menu-second-row {
+#easy-menu > .menu-first-row, #easy-menu > .menu-second-row {
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -910,7 +910,7 @@ footer {
     padding: 0;  
   }
 
-  #menu {
+ #easy-menu {
     width: 50%;
     height: 80%;
   }

@@ -227,22 +227,33 @@ class Game {
     }
   }
 
-  restart() {
+  // restart() {
+  //   document.getElementById(`${this.mode}-timer-container`).innerHTML = "";
+  //   document.getElementById(`${this.mode}-score`).innerHTML = "";
+  //   document.getElementById(`${this.mode}-customer-lost`).innerHTML = "";
+  //   this.order.deleteOrder();
+  //   this.bento.deleteBento();
+  //   this.menu.deleteMenu();
+  //   this.score = 0;
+  //   this.renderScore();
+  //   this.customerLost = 0;
+  //   this.timeElapsed = new Date();
+    
+    // document.getElementById("modal").classList.add("hidden");
+    // this.addListenerOnWindow();
+    // this.flashLevelUpMessage();
+    
+    // this.generateGameRound()
+  // }
+
+  clear() {
     document.getElementById(`${this.mode}-timer-container`).innerHTML = "";
     document.getElementById(`${this.mode}-score`).innerHTML = "";
     document.getElementById(`${this.mode}-customer-lost`).innerHTML = "";
+    document.getElementById(`${this.mode}-menu`).innerHTML = "";
     this.order.deleteOrder();
     this.bento.deleteBento();
-    this.score = 0;
-    this.renderScore();
-    this.customerLost = 0;
-    this.timeElapsed = new Date();
-    
-    document.getElementById("modal").classList.add("hidden");
-    this.addListenerOnWindow();
-    this.flashLevelUpMessage();
-    
-    this.generateGameRound()
+    this.menu.deleteMenu();
   }
 
   lost() {

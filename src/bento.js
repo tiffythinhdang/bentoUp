@@ -57,7 +57,6 @@ class Bento {
       let img = document.createElement("img");
       img.src = this.bentoOptions[item];
       img.alt = `${item}-icon`;
-      debugger
       bentoItem.appendChild(img);
     }
   }

@@ -53,6 +53,7 @@ export class MenuItem {
 export class Menu {
   constructor(mode="easy") {
     this.menu = [];
+    this.mode = mode;
 
     this.generateMenu(mode);
   }
@@ -75,7 +76,7 @@ export class Menu {
   }
 
   deleteMenu() {
-    Array.from(document.getElementById("menu")
+    Array.from(document.getElementById(`${this.mode}-menu`)
       .getElementsByTagName("img"))
       .forEach(img => img.remove());
     document.getElementById("modal").classList.add("hidden");
